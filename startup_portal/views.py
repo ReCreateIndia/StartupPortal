@@ -16,3 +16,9 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
+
+def login(request):
+    return render(request,'login.html',{})
+def postLogin(request):
+    return "login successful"
+
