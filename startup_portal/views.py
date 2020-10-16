@@ -19,6 +19,10 @@ def register(request):
 
 def login(request):
     return render(request,'login.html',{})
+
 def postLogin(request):
-    return "login successful"
+    return render(request,'home.html',{})
+
+def basic(request):
+    return render(request,'home.html',{})
 
