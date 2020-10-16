@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
+import pyrebase
+from .config import firebaseConfig
 
+firebase=pyrebase.initialize_app(firebaseConfig)
+auth=firebase.auth()
 from .forms import RegisterForm
 
 def register(request):
@@ -21,7 +25,11 @@ def login(request):
     return render(request,'login.html',{})
 
 def postLogin(request):
+    email=request.POST.get('email')
+    password=request.POST.get('password')
+    user=auth.sign_in_with_email_and_password(email,password)
     return render(request,'home.html',{})
+
 
 def basic(request):
     return render(request,'home.html',{})
