@@ -1,8 +1,12 @@
-<form action="/postLogin/" method="post">
-    {% csrf_token%}
-    Email:
-    <input type="email" name="email">
-    Password:
-    <input type="password" name="password">
-    <input type="submit" value="SignIn">
-</form>
+<form action="/login/" id="query" class="form-inline" method="POST">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="email" class="team2">Email - </label><br>
+                    {{form.email}}
+        </div>
+        <div class="form-group" id="form3">
+            <label for="phone number" class="team3">Password - </label><br>
+                   {{form.password}}
+        </div>
+        <input type="submit" class="btn" href="#" style="margin-left: 210px;">
+    </form>

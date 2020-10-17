@@ -7,8 +7,8 @@ from .config import firebaseConfig
 
 firebase=pyrebase.initialize_app(firebaseConfig)
 auth=firebase.auth()
-from .forms import RegisterForm
-
+from .forms import RegisterForm,LoginForm
+user="bla"
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -20,15 +20,25 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
-
 def login(request):
-    return render(request,'login.html',{})
+    if request.method=='POST':
+        form=LoginForm(request.POST)
+        if form.is_valid():
+            email=form.cleaned_data.get('email')
+            password=form.cleaned_data.get('password')
+            user=auth.sign_in_with_email_and_password(email,password)
+            if user:
+                messages.success(request, f'login successful')
+                return render(request,'home.html',{})
+            messages.failure(request,'invalid credentials')
+    form=LoginForm()
+    return render(request,'login.html',{'form':form})
 
 def postLogin(request):
     email=request.POST.get('email')
     password=request.POST.get('password')
     user=auth.sign_in_with_email_and_password(email,password)
-    return render(request,'home.html',{})
+    return render(request,'home.html',{'user':user})
 
 
 def basic(request):
