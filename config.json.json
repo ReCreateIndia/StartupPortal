@@ -1,16 +1,4 @@
-firebaseConfig = {
-    "apiKey": "AIzaSyDFtg_YkT7Ej_sCf63gRudcgjTGhkUwthU",
-    "authDomain": "startupcarvaan.firebaseapp.com",
-    "databaseURL": "https://startupcarvaan.firebaseio.com",
-    "projectId": "startupcarvaan",
-    "storageBucket": "startupcarvaan.appspot.com",
-    "messagingSenderId": "844859435167",
-    "appId": "1:844859435167:web:921c1da84bcdf026c89aaa",
-    "measurementId": "G-MHFP9HXHE5"
-}
-
-
-serviceAccount={
+{
   "type": "service_account",
   "project_id": "startupcarvaan",
   "private_key_id": "51278ec1d7b0ada82cd5da495af538497b1ad275",

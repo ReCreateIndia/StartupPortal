@@ -2,12 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
-import pyrebase
-from .config import firebaseConfig
-
-firebase=pyrebase.initialize_app(firebaseConfig)
-auth=firebase.auth()
+from .config import firebaseConfig,serviceAccount
+from pathlib import Path
+import os
+BASE_DIR = Path(__file__).resolve().parent.parent
 from .forms import RegisterForm,LoginForm
+
+
+import firebase_admin
+from firebase_admin import credentials
+
 user="bla"
 def register(request):
     if request.method == 'POST':

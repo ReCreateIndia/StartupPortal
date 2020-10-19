@@ -28,40 +28,32 @@
 	<div class="limiter">
 		<div class="container-login">
 			<div class="wrap">
+
+				<!-- form with backend -->
 				<form class="login-form" method="POST"  action="/login/" id="query">
                     {% csrf_token %}
 					<span class="login-form-title p-b-43" id="fo1">
 						CARVAAN
 					</span><br>
-					
-				   <div class="wrap-input">
-                       <span class="label-input">Username</span>						
-						<input class="input" type="text" name="user">
+					<div class="wrap-input">					
+						{{form.email}}
 					</div>
-					
-                    <div class="wrap-input">
-                        <span class="label-input">Password</span>
-                        
-						<input class="input" type="password" name="password">
-						
+					<div class="wrap-input">
+                        {{form.password}}
 					</div>
-                        
-
-					<div class="forgot">
+                    <div class="forgot">
                         <div>
 							<button type="button" href="#"  class="btn btn-link" id="co1">
 								Forgot Password?
 							</button>
 						</div>
 					</div><br>
-			
-                    <div class="container-login-form-btn">
+					<div class="container-login-form-btn">
 						<button class="login-form-btn" id="fo2">
 							Submit
 						</button>
 					</div>
-					
-                </form>
+				</form>
 
 				<div class="login-more" style="background-image: url('{% static 'bg-01.jpeg' %}');">
 				</div>
