@@ -1,69 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Register</title>
-    {% load static %}
+	<title>Carvaan</title>
 	<meta charset="UTF-8">
-	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="stylesheet" href="{% static 'startup_portal/login.css' %}">
-      <link rel="stylesheet" href="{%static 'startup_portal/bootstrap.min.css'%}">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-	<script>
-            $(document).ready(function()
-            {
-                $('.form-check-input') .click(function())
-            });
-    </script>
-	
     
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 </head>
-<body style="font-family:'Raleway';">
-	<img src="register.jpg" class="img-fluid" style="width:100%">
-    <div class="container">
-	    <div class="row" >
-            <div class="col">
-		<h1 class="pull-left"> Carvaan </h1>
-		<br>
-            </div>
-            <div class="col">
-                <form action="/login" id="query" class="form-inline" method="POST">
-                {% csrf_token %}
+<body style="background-color: #666666;">
+	
+	<div class="limiter">
+		<div class="container-login">
+			<div class="wrap">
+				<form class="login-form validate-form">
+					<span class="login-form-title p-b-43">
+						CARVAAN
+					</span><br>
+					
+				   <div class="wrap-input">
+						<input class="input" type="text" name="team_name">
+						
+						<span class="label-input">Team Name</span>
+					</div>
+					
+                    <div class="wrap-input">
+                        
+						<input class="input" type="email" name="pass">
+						
+						<span class="label-input">Email</span>
+					</div>
                     
-                    <div class="form-group" id="form1"><br>
-                        <label for="team name" class="team1" >Team Name - </label><br>
-                                {{form.team_name}}
+                    <div class="wrap-input">
+                        
+						<input class="input" type="number" name="phone">
+						
+						<span class="label-input">Phone Number</span>
+					</div>
+                         <div class="container" id="co2">
+
+              <label class="checkbox-inline">
+               <input type="checkbox" value=""> Student
+             </label>
+          <label class="checkbox-inline">
+             <input type="checkbox" value=""> Professional
+                 </label>
                     </div>
-                    <div class="form-group" id="form2">
-                        <label for="email" class="team2">Email - </label><br>
-                                {{form.email}}
-                    </div>
-                    <div class="form-group" id="form3">
-                        <label for="phone number" class="team3">Phone number - </label><br>
-                               {{form.phone}}
-                    </div>
-                    <div class="form-check" id="form4">
-                        <label class="form-check-label" for="exampleCheck1">
-                            <input type="radio" name="choose" value="Student" class="form-check-input" id="exampleCheck1">
-                            Student
-                        </label>
-                        <label class="form-check-label" for="exampleCheck1">
-                            <input type="radio" name="choose" value="Professional" class="form-check-input" id="exampleCheck1" style="margin-left: 25px;">
-                            Professional
-                        </label>
-                    </div>
-                    <h3 id="cont1" >Attach a document explaining the idea</h3>
-                    <div class="btn" id="btn1">
-                                      {{form.file}}
-                        <input type="hidden" id="pic" accept="Idea/" name="Idea">
-                        <h4 id="upload"></h4>
-                        <button type="button" id="uploadButton" class="ui green button">Upload</button>
-                    </div>
-                    <input type="submit" class="btn" href="#" style="margin-left: 210px;">
+                       <h3 id="co1">Attach a document explaining the idea<button type="button" class="btn" >Upload</button></h3>
+                <a type="button" class="btn" href="#" style="margin-left: 210px; color: #696969;">Register</a>
+					
                 </form>
-            </div>
-       </div>
-    </div>
-    
+
+				<div class="login-more" style="background-image: url('images/bg-01.jpeg');">
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
