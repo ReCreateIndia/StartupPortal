@@ -38,7 +38,7 @@ def postLogin(request):
     email=request.POST.get('email')
     password=request.POST.get('password')
     user=auth.sign_in_with_email_and_password(email,password)
-    return render(request,'home.html',{'user':user})
+    return render(request,'home.html',{'user': user})
 
 
 def basic(request):
