@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	{% load static %}
 	<title>Carvaan</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,12 +11,13 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
 
 </head>
-<body style="background-color: #666666;">
+<body >
 	
 	<div class="limiter">
 		<div class="container-login">
 			<div class="wrap">
-				<form class="login-form validate-form">
+				<form class="login-form ">
+					 {% csrf_token %}
 					<span class="login-form-title p-b-43">
 						CARVAAN
 					</span><br>
@@ -53,7 +55,7 @@
 					
                 </form>
 
-				<div class="login-more" style="background-image: url('images/bg-01.jpeg');">
+				<div class="login-more" style="background-image: url('{% static 'bg-01.jpeg' %}');">
 				</div>
 			</div>
 		</div>
