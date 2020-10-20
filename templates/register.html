@@ -16,7 +16,7 @@
 	<div class="limiter">
 		<div class="container-login">
 			<div class="wrap">
-				<form class="login-form ">
+				<form class="login-form " action="/home/" method="POST">
 					 {% csrf_token %}
 					<span class="login-form-title p-b-43">
 						CARVAAN
@@ -44,14 +44,15 @@
                          <div class="container" id="co2">
 
               <label class="checkbox-inline">
-               <input type="checkbox" value=""> Student
-             </label>
-          <label class="checkbox-inline">
-             <input type="checkbox" value=""> Professional
+               		<input type="checkbox" value=""> Student
+            </label>
+          	<label class="checkbox-inline">
+             	<input type="checkbox" value=""> Professional
                  </label>
                     </div>
-                       <h3 id="co1">Attach a document explaining the idea<button type="button" class="btn" >Upload</button></h3>
-                <a type="button" class="btn" href="#" style="margin-left: 210px; color: #696969;">Register</a>
+					   <!-- <input type="file" class="input"></input><br> -->
+					   <h3 id="co1">Attach a document explaining the idea<input type="file" class="btn" name="file">Upload</input></h3>
+                	<button type="submit" class="btn"  style="margin-left: 210px; color: #696969;">Register</button>
 					
                 </form>
 
