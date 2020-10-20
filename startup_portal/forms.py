@@ -6,7 +6,3 @@ class RegisterForm(forms.Form):
     phone = forms.NumberInput()
     check = forms.CheckboxInput()
     upload = forms.FileField()
-
-class LoginForm(forms.Form):
-    email = forms.EmailField()
-    password=forms.CharField(widget=forms.PasswordInput)

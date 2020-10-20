@@ -6,12 +6,16 @@ from .config import firebaseConfig,serviceAccount
 from pathlib import Path
 import os
 BASE_DIR = Path(__file__).resolve().parent.parent
-from .forms import RegisterForm,LoginForm
-
+from .forms import RegisterForm
 
 import firebase_admin
 from firebase_admin import credentials
+from firebase_admin import auth,firestore
 
+cred=credentials.Certificate('config.json.json')
+firebase_admin.initialize_app(cred)
+
+db=firestore.client()
 user="bla"
 def register(request):
     if request.method == 'POST':
@@ -24,24 +28,22 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
-def login(request):
-    if request.method=='POST':
-        form=LoginForm(request.POST)
-        if form.is_valid():
-            email=form.cleaned_data.get('email')
-            password=form.cleaned_data.get('password')
-            user=auth.sign_in_with_email_and_password(email,password)
-            if user:
-                messages.success(request, f'login successful')
-                return render(request,'home.html',{})
-            messages.failure(request,'invalid credentials')
-    form=LoginForm()
-    return render(request,'login.html',{'form':form})
 
-def postLogin(request):
-    email=request.POST.get('email')
-    password=request.POST.get('password')
-    user=auth.sign_in_with_email_and_password(email,password)
+def login(request):
+    if request.method == 'POST':
+        email=request.POST.get('email')
+        email+='@gmail.com'
+        password=request.POST.get('password')
+        user=auth.create_user(email=email,password=password)
+        db.collection('users').document().set({
+            'username':email,
+        
+        })
+        return render(request,'home.html')
+    return render(request,'login.html',{})
+
+def home(request):
+
     return render(request,'home.html',{'user': user})
 
 
