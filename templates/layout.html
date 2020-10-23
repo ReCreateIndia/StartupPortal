@@ -1,1 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Home page</title>
+	<meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+	
+	
+</head>
+<body >
+<header id="header">
+  <div class="container d-flex">
+    <div class="logo mr-auto">
+    <h1 id="co1"> Carvaan </h1>
+    </div>
+    <div class="navbar-nav ml-auto">
+			<div id="co2"> Username
+      <a href="loginMain.html" class="nav-item nav-link"  id="co3"> Logout </a>
+			</div>
+		</div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="position-absolute top-center">
+	<center>
+	<!-- <button type="button" class="btn btn-outline-info"> My Blocks </button>
+	<button type="button" class="btn btn-outline-info"> Add a block </button>
+	<button type="button" class="btn btn-outline-info"> Delete a blog </button>
+	<button type="button" class="btn btn-outline-info"> Help </button> -->
+	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> My Blocks
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> Add a block
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> Delete a blog
+  </label>
+	<label class="btn btn-secondary">
+    <input type="radio" name="options" id="option4" autocomplete="off"> Help
+  </label>
+</div>
+	</center>
+	</div>
+</div>
+
+<div id="main" style="margin-top: 300px;">
+	<article class="post featured">
+	<header class="major">
+	<h2><a href="#" id="co4">INSIGHTS</a></h2>
+        
+	<br><br><br><br><br><br>
+        
+        <br><br><br><br>
+	</header>
+       {% block content %}
+          {% endblock %}
+	</article>
+</div>
+</body>
+</html>
 
