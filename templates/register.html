@@ -9,6 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 
 	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+	<script src="{% static 'js/index.js' %}"></script>
 
 </head>
 <body >
@@ -49,10 +52,16 @@
           	<label class="checkbox-inline">
              	<input type="checkbox" value=""> Professional
                  </label>
-                    </div>
+					</div>
+					<div>
+						<h3 id="co1">Attach a document explaining the idea</h3>
+						<input type="file" class="btn" accept="Idea/" id="files" name="file">Upload</input>
+						<input type="hidden" id="url" name="geturl" accept="Idea/">
+						<button type="button" onclick="upload()" class="btn"  style="margin-left: 210px; color: #696969;">upload</button>
+					</div>
 					   <!-- <input type="file" class="input"></input><br> -->
-					   <h3 id="co1">Attach a document explaining the idea<input type="file" class="btn" name="file">Upload</input></h3>
-                	<button type="submit" class="btn"  style="margin-left: 210px; color: #696969;">Register</button>
+					   
+					<button type="submit" class="btn"  style="margin-left: 210px; color: #696969;">Register</button>
 					
                 </form>
 
@@ -64,3 +73,4 @@
 	
 </body>
 </html>
+		
