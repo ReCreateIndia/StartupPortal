@@ -19,15 +19,13 @@ db=firestore.client()
 user="bla"
 def register(request):
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            team_name = form.cleaned_data.get('team_name')
-            messages.success(request, f'Your account has been created! You are now able to log in')
-            return redirect('login')
-    else:
-        form = RegisterForm()
-    return render(request, 'register.html', {'form': form})
+        teamName=request.POST.get('team_name')
+        db.collection('startups').document().set({
+            'TeamName':teamName,
+        
+        })
+        return render(request,'home.html')
+    return render(request, 'register.html',{})
 
 def login(request):
     if request.method == 'POST':
@@ -43,8 +41,11 @@ def login(request):
     return render(request,'login.html',{})
 
 def home(request):
-
     return render(request,'home.html',{'user': user})
+def help(request):
+    return render(request,'help.html',{'user': user})
+def blog(request):
+    return render(request,'blog.html',{'user': user})
 
 
 def basic(request):
