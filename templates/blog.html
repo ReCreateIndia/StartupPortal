@@ -1,4 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-         <p>Recreate India</p>
+         {% for doc in docs %}
+            <p>{{doc.to_dict.Credits}}</p>
+            <p>{{doc.to_dict.Email}}</p>
+            <p>{{doc.to_dict.ImageUrl}}</p>
+            <p>{{doc.to_dict.PhoneNumber}}</p>
+         {% endfor%}
 {% endblock content %}
