@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
          {% for doc in docs %}
-            <p>{{doc.to_dict.Credits}}</p>
-            <p>{{doc.to_dict.Email}}</p>
-            <p>{{doc.to_dict.ImageUrl}}</p>
-            <p>{{doc.to_dict.PhoneNumber}}</p>
+            <p>{{doc.to_dict.title}}</p>
+            {%if doc.to_dict.imageurl%}
+            <p>paste image view</p>
+            {%else%}
+            <p>paste videoview</p>
+            {% endif%}
          {% endfor%}
 {% endblock content %}

@@ -45,8 +45,8 @@ def home(request):
 def help(request):
     return render(request,'help.html',{'user': user})
 def blog(request):
-    docs = db.collection(u'Users').stream()
-    
+    docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
+
     return render(request,'blog.html',{'docs': docs})
 def basic(request):
     return render(request,'home.html',{})
