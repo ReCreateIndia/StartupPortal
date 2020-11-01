@@ -46,8 +46,6 @@ def help(request):
     return render(request,'help.html',{'user': user})
 def blog(request):
     return render(request,'blog.html',{'user': user})
-
-
 def basic(request):
     return render(request,'home.html',{})
 

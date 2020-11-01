@@ -8,6 +8,6 @@ urlpatterns = [
     path('register/',register),
     path('login/',login),
     path('home/',home),
-    path('help/',home),
-    path('blog/',home),
+    path('home/help/',help),
+    path('home/blog/',blog),
 ]
