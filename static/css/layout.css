@@ -467,4 +467,12 @@ h1, h2, h3, h4, h5, h6 {
         width: 280px;
     }
 }
+@media only screen and (max-width:600px) {
+#main1 {
+        margin-left: -100px;
+        height: 160px;
+        width: 50px;
+    }
+}
+
 
