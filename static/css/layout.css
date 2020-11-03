@@ -77,6 +77,32 @@
 #help5 {
     margin-left: 2px;
 }
+#top1 {
+    color: #19343d; 
+    font-size: 20px;
+}
+#top2 {
+    margin-top: 10px;
+    background-color: #19343d;
+    color: white; 
+    border: none; 
+    font-size: 17px;
+}
+.toppane5{
+    width: 40%;
+    min-width: 240px;
+    margin-left: 40px;
+    margin-top: 20px;
+    height: 75px;
+    border-collapse: collapse;
+    background-color: #19343d;
+    color: white;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.toppane5[contentEditable="true"]:empty:not(:focus):before {
+  content: attr(placeholder)
+}
 .toppane4 {
     width: 40%;
     min-width: 450px;
@@ -439,6 +465,25 @@ h1, h2, h3, h4, h5, h6 {
         margin-left: 5px;
         height: 180px;
         width: 280px;
+    }
+}
+@media only screen and (max-width:600px) {
+#main1 {
+        margin-left: -100px;
+        height: 160px;
+        width: 50px;
+    }
+}
+@media screen and (max-width: 736px) {
+    #set {
+        margin-left: -400px;
+        
+    }
+}
+@media screen and (max-width: 980px){
+    #set {
+        margin-left: -350px;
+        
     }
 }
 
