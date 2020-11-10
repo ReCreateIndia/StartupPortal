@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-
 <div id="set">
        <div class="container">
             <div class="middlepane">
@@ -8,7 +7,12 @@
             <div class="toppane1">
                   <section class="container">
                        <div class="card">
-                         <div class="front"><p id="in11">Upload image<input type="file" class="btn btn-outline-light" id="in2"> </input></p></div>
+                         <div class="front">
+                            <p id="in11">Upload Image</p>
+						    <input type="file" class="btn btn-outline-light" accept="BlogPost/" id="in2" name="">Upload</input>
+						    <input type="hidden" id="url" name="geturl" accept="BlogPost/">
+						    <button type="button" onclick="upload_A()" style="margin-bottom: 5px;" class="btn">Upload</button> 
+                        </div>
                                <div class="back"><div class="toppane4" contentEditable=true placeholder="Paste url"></div></div>
                               </div>
                                 </section> 

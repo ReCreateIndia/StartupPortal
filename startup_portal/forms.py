@@ -6,3 +6,8 @@ class RegisterForm(forms.Form):
     phone = forms.NumberInput()
     check = forms.CheckboxInput()
     upload = forms.FileField()
+
+class AddBlogForm(forms.Form):
+    geturl = forms.CharField()
+    check = forms.CheckboxInput()
+    discription = forms.Textarea()
