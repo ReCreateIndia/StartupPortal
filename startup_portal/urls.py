@@ -5,10 +5,10 @@ from .views import register,login,home,help,blog,addblog
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('register/',register),
-    # path('login/',login),
+    path('register/',register),
+    path('login/',login),
     path('',home),
-    # path('help/',help),
-    # path('blog/',blog),
-    # path('addblog/',addblog),
+    path('help/',help),
+    path('blog/',blog),
+    path('addblog/',addblog),
 ]
