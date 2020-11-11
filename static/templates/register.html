@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<title>Carvaan</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+	<script src="{% static 'js/index.js' %}"></script>
+
+</head>
+<body >
+	
+	<div class="limiter">
+		<div class="container-login">
+			<div class="wrap">
+				<form class="login-form " action="/register/" method="POST">
+					 {% csrf_token %}
+					<span class="login-form-title p-b-43">
+						CARVAAN
+					</span><br>
+					
+				   <div class="wrap-input">
+						<input class="input" type="text" name="team_name" placeholder="Team Name">
+						
+						<span class="label-input"></span>
+					</div>
+					
+                    <div class="wrap-input">
+                        
+						<input class="input" type="email" name="pass" placeholder="Email">
+						
+						<span class="label-input"></span>
+					</div>
+                    
+                    <div class="wrap-input">
+                        
+						<input class="input" type="number" name="phone" placeholder="Phone Number">
+						
+						<span class="label-input"></span>
+					</div>
+                         <div class="container" id="co2">
+
+              <label class="checkbox-inline">
+               		<input type="checkbox" value=""> Student
+            </label>
+          	<label class="checkbox-inline">
+             	<input type="checkbox" value=""> Professional
+                 </label>
+					</div>
+					<div>
+						<h3 id="co1">Attach a document explaining the idea</h3>
+						<input type="file" class="btn" accept="Idea/" id="files" name="file">Upload</input>
+						<input type="hidden" id="url" name="geturl" accept="Idea/">
+						<button type="button" onclick="upload()" class="btn"  style="margin-left: 210px; color: #696969;">upload</button>
+					</div>
+					   <!-- <input type="file" class="input"></input><br> -->
+					   
+					<button type="submit" class="btn"  style="margin-left: 210px; color: #696969;">Register</button>
+					
+                </form>
+
+				<div class="login-more" style="background-image: url('{% static 'bg-01.jpeg' %}');">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
+		

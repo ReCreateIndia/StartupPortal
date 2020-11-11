@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/addblog.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<div id="set">
+       <div class="container">
+            <div class="middlepane">
+                <div class="container">
+            <div class="toppane1">
+                  <section class="container">
+                       <div class="card">
+                         <div class="front">
+                            <p id="in11">Upload Image</p>
+						    <input type="file" class="btn btn-outline-light" accept="BlogPost/" id="in2" name="">Upload</input>
+						    <input type="hidden" id="url" name="geturl" accept="BlogPost/">
+						    <button type="button" onclick="upload_A()" style="margin-bottom: 5px;" class="btn">Upload</button> 
+                        </div>
+                               <div class="back"><div class="toppane4" contentEditable=true placeholder="Paste url"></div></div>
+                              </div>
+                                </section> 
+                               <p id="in12">To drop url for video - 
+                                      <button onclick="flip()" class="button">Click</button>
+                                                        </p>
+                    
+                    </div>
+                    
+                    <!--mid part-->
+                    <div class="toppane2">
+                        <p id="in10"></p>
+                         <label class="checkbox-inline" id="in3">
+               		<input type="checkbox" value="" id="in4 "> Ask for intern
+                </label><br>
+          	<label class="checkbox-inline" id="in5">
+             	<input type="checkbox" value="" id="in6"> Ask for freelancing
+                 </label><br>
+                        <label class="checkbox-inline" id="in7">
+             	<input type="checkbox" value="" id="in8"> Ask for feedback
+                 </label>
+                    </div>
+                     <!--End-->
+                    <div class="toppane3" contentEditable=true placeholder="add discription"></div>
+                    <a type="button" class="btn btn-outline-light" id="in9" >Add Blog</a>
+            
+</div>
+           </div>
+            
+</div>
+       </div>
+        <br><br>  
+    
+    </body>
+    </html>
