@@ -1,6 +1,68 @@
-{% extends "layout.html" %}
-{% block content %}
-<form action="" method="post" action="/help/">
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	{% load static %}
+	<title>Home page</title>
+	<meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+       <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+		<!--<link rel="stylesheet" type="text/css" href="{% static 'js/index.js' %}">-->
+	   
+	     
+ 
+ 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+	
+	
+</head>
+<body >
+<header id="header">
+  <div class="container d-flex">
+    <div class="logo mr-auto">
+    <h1 id="co1"> Carvaan </h1>
+    </div>
+    <div class="navbar-nav ml-auto">
+			<div id="co2"> Username
+      <a href="loginMain.html" class="nav-item nav-link"  id="co3"> Logout </a>
+			</div>
+		</div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="position-absolute top-center">
+	<center>
+	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+	<a type="button" class="btn btn-dark btn-outline-dark" id="re1" href="/blog/"> My Blocks </a>
+	<a type="button" class="btn btn-dark btn-outline-dark" id="re2" href="/addblog/"> Add a block </a>
+	<a type="button" class="btn btn-dark btn-outline-dark" id="re4" href="/help/"> Help </a>
+	</div>
+	<!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> My Blocks
+  </label>`
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> Add a block
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> Delete a blog
+  </label>
+	<label class="btn btn-secondary">
+    <input type="radio" name="options" id="option4" autocomplete="off"> Help
+  </label>
+</div> -->
+	</center>
+	</div>
+</div>
+
+<div id="main" style="margin-top: 300px;">
+	<article class="post featured">
+	<header class="major">
+	<form action="" method="post" action="/help/">
           {% csrf_token %}
          <div class="container">
              <label class="checkbox-inline" id="help1">
@@ -24,5 +86,18 @@
         <br><br>
          
         </form>
+		
+		
+	</header>
+       	
+	</article>
+</div>
+<script src="{% static 'js/index1.js' %}"></script>
+</body>
+</html>
 
-{% endblock content %}
+
+
+
+
+
