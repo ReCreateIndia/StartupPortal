@@ -76,7 +76,7 @@ iframe {
 }
 
 .login-more {
-  width: calc(100% - 560px);
+  width: calc(100% - 760px);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -99,7 +99,7 @@ iframe {
 
 
 .login-form {
-  width: 560px;
+  width: 760px;
   min-height: 100vh;
   display: block;
   background-color: #f7f7f7;
