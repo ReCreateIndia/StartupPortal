@@ -52,7 +52,7 @@ def login(request):
     return render(request,'login.html',{})
 
 def home(request):
-    return render(request,'layout.html',{'user': user})
+    return render(request,'layout.html',{'title': "user"})
 def help(request):
     return render(request,'help.html',{'user': user})
 def blog(request):
