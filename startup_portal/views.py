@@ -2,21 +2,33 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
+from django.utils.datastructures import MultiValueDictKeyError
 from .config import firebaseConfig,serviceAccount
 from pathlib import Path
 import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 from .forms import RegisterForm
-
+config = {
+    "apiKey": "AIzaSyDFtg_YkT7Ej_sCf63gRudcgjTGhkUwthU",
+    "authDomain": "startupcarvaan.firebaseapp.com",
+    "databaseURL": "https://startupcarvaan.firebaseio.com",
+    "projectId": "startupcarvaan",
+    "storageBucket": "startupcarvaan.appspot.com",
+    "messagingSenderId": "844859435167",
+    "appId": "1:844859435167:web:921c1da84bcdf026c89aaa",
+    "measurementId": "G-MHFP9HXHE5"
+    }
 import firebase_admin
 from firebase_admin import credentials
-from firebase_admin import auth,firestore
-
+from firebase_admin import firestore
+import pyrebase
 cred=credentials.Certificate('config.json.json')
 firebase_admin.initialize_app(cred)
-
+firebase=pyrebase.initialize_app(config)
 db=firestore.client()
 user="bla"
+auth=firebase.auth()
+storage=firebase.storage()
 def register(request):
     if request.method == 'POST':
         teamName=request.POST.get('team_name')
@@ -30,9 +42,8 @@ def register(request):
 def login(request):
     if request.method == 'POST':
         email=request.POST.get('email')
-        email+='@gmail.com'
         password=request.POST.get('password')
-        user=auth.create_user(email=email,password=password)
+        user = auth.sign_in_with_email_and_password(email, password)
         db.collection('users').document().set({
             'username':email,
         
