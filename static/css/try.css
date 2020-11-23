@@ -1,0 +1,34 @@
+.quodrant{
+    width: 100%;
+    height: 126vh;
+    margin: 0;
+    padding: 6px;
+    background-color: #f2bc94;
+    border-radius: 16px;
+}
+
+.qtop,
+.qbottom{
+    width: 96%;
+    height: 56vh;
+}
+
+.quodrant1,
+.quodrant2{
+    display: inline;
+    float: left;
+    width: 46%;
+    height: 96%;
+    border-radius: 30px;
+    margin: 2%;
+}
+
+.quodrant1{
+    background-color: #293250;
+}
+
+.quodrant2{
+    background-color: #c4a35a;
+}
+
+
