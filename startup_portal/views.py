@@ -28,7 +28,6 @@ firebase=pyrebase.initialize_app(config)
 db=firestore.client()
 auth=firebase.auth()
 storage=firebase.storage()
-user=""
 def register(request):
     if request.method == 'POST':
         teamName=request.POST.get('team_name')
@@ -48,14 +47,14 @@ def login(request):
             'username':email,
         
         })
+        print(user)
         return render(request,'layout.html')
     return render(request,'login.html',{})
 
 def home(request):
-    if user:
-        return render(request,'layout.html',{'title': "user"})
-    return render(request,'login.html',{})
-
+    if auth.user.email:
+        return render(request,'layout.html',{})
+    return render(request,'login.html',{'title': "user"})
 def help(request):
     return render(request,'help.html',{'user': user})
 def blog(request):
