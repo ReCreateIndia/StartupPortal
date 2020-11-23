@@ -1,10 +1,10 @@
 .quodrant{
-    width: 100%;
-    height: 126vh;
-    margin: 0;
+    width: 70%;
+    height: 100vh;
+    margin-left: 14%;
     padding: 6px;
     background-color: #f2bc94;
-    border-radius: 16px;
+    border-radius: 18px;
 }
 
 .qtop,
@@ -17,10 +17,10 @@
 .quodrant2{
     display: inline;
     float: left;
-    width: 46%;
-    height: 96%;
+    width: 41%;
+    height: 70%;
     border-radius: 30px;
-    margin: 2%;
+    margin: 4%;
 }
 
 .quodrant1{
