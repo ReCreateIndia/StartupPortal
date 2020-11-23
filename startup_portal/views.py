@@ -36,7 +36,7 @@ def register(request):
             'TeamName':teamName,
         
         })
-        return render(request,'home.html')
+        return render(request,'blog.html')
     return render(request, 'register.html',{})
 
 def login(request):
@@ -48,7 +48,7 @@ def login(request):
             'username':email,
         
         })
-        return render(request,'home.html')
+        return render(request,'blog.html')
     return render(request,'login.html',{})
 
 def home(request):
