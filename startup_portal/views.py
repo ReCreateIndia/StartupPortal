@@ -26,9 +26,9 @@ cred=credentials.Certificate('config.json.json')
 firebase_admin.initialize_app(cred)
 firebase=pyrebase.initialize_app(config)
 db=firestore.client()
-user="bla"
 auth=firebase.auth()
 storage=firebase.storage()
+user=""
 def register(request):
     if request.method == 'POST':
         teamName=request.POST.get('team_name')
@@ -43,16 +43,19 @@ def login(request):
     if request.method == 'POST':
         email=request.POST.get('email')
         password=request.POST.get('password')
-        user = auth.sign_in_with_email_and_password(email, password)
+        user=auth.sign_in_with_email_and_password(email, password)
         db.collection('users').document().set({
             'username':email,
         
         })
-        return render(request,'blog.html')
+        return render(request,'layout.html')
     return render(request,'login.html',{})
 
 def home(request):
-    return render(request,'layout.html',{'title': "user"})
+    if user:
+        return render(request,'layout.html',{'title': "user"})
+    return render(request,'login.html',{})
+
 def help(request):
     return render(request,'help.html',{'user': user})
 def blog(request):
