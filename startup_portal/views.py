@@ -28,6 +28,8 @@ firebase=pyrebase.initialize_app(config)
 db=firestore.client()
 auth=firebase.auth()
 storage=firebase.storage()
+email=""
+password=""
 def register(request):
     if request.method == 'POST':
         teamName=request.POST.get('team_name')
@@ -42,21 +44,20 @@ def login(request):
     if request.method == 'POST':
         email=request.POST.get('email')
         password=request.POST.get('password')
-        user=auth.sign_in_with_email_and_password(email, password)
-        db.collection('users').document().set({
+        auth.sign_in_with_email_and_password(email, password)
+        db.collection('users').document(auth.current_user['localId']).set({
             'username':email,
-        
         })
-        print(user)
-        return render(request,'layout.html')
+        return redirect('/')
     return render(request,'login.html',{})
 
 def home(request):
-    if auth.user.email:
-        return render(request,'layout.html',{})
-    return render(request,'login.html',{'title': "user"})
+    if auth.current_user:
+        auth.refresh(auth.current_user['refreshToken'])
+        return render(request,'layout.html',{'id':auth.current_user['localId']})
+    return redirect('/login/')
 def help(request):
-    return render(request,'help.html',{'user': user})
+    return render(request,'help.html',{})
 def blog(request):
     docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
     return render(request,'blog.html',{'docs': docs})

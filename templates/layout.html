@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	{% load static %}
-	<title> Home Page </title>
+	<title>{{id}}</title>
 	<!-- fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,9 +34,9 @@
 <br>
 <center>
 <div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" id="btn1" onclick="changeFor1()" class="btn btn-dark btn-lg " > My Blogs </button>
-  <button type="button" id="btn2" onclick="changeFor2()" class="btn btn-outline-dark btn-lg"> Add a Blogs </button>
-  <button type="button" id="btn3" onclick="changeFor3()" class="btn btn-outline-dark btn-lg"> Help </button>
+  <a type="button" id="btn1" href="/blog/" class="btn btn-dark btn-lg " > My Blogs </a>
+  <a type="button" id="btn2" href="/addblog/" class="btn btn-outline-dark btn-lg"> Add a Blogs </a>
+  <a type="button" id="btn3" href="/help/" class="btn btn-outline-dark btn-lg"> Help </a>
 </div>
 <br><br>
 </center>
