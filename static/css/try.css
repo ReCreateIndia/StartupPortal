@@ -1,34 +1,112 @@
-.quodrant{
-    width: 70%;
-    height: 100vh;
-    margin-left: 14%;
-    padding: 6px;
-    background-color: #f2bc94;
-    border-radius: 18px;
-}
+.container {
+    width:100%;
+   height:auto;
+   background:#f2bc94;
+   
+   display:flex;
+   flex-direction:row;
+   justify-content:center;
+   flex-flow:wrap;
+   border-radius: 40px;
+   padding: 10px;
+   margin-top: 30px;
+   
+   }
+   
+   .box1{
+   width:45%;
+   height:360px;
+   background:#293250;
+   margin:20px;
+   box-sizing:border-box;
+   font-size:50px;
+   border-radius: 20px;
+   margin-top: 40px;
+   }
+   .box2{
+    width:45%;
+    height:360px;
+    background:#c4a35a;
+    margin:20px;
+    box-sizing:border-box;
+    font-size:50px;
+    border-radius: 20px;
+    margin-top: 40px;
+    }
+   @media screen and (max-width:1200px){
+   .box1,.box2{
+   width:40%;
+   }
+   }
+   
+   @media screen and (max-width:600px){
+   .box1,.box2{
+   width:90%;
+   }
+   }
+   
+   ::-webkit-input-placeholder { /* Edge */
+    color: black;
+    font-size: 2px;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer */
+    color: black;
+    font-size: 2px;
+  }
+  
+  ::placeholder {
+    color: black;
+    font-size: 18px;
+  }
+  .t2 {
+    width: 250px; height:30px; margin-left:16%; font-size:16px;
+    border-radius: 12px;
 
-.qtop,
-.qbottom{
-    width: 96%;
-    height: 56vh;
-}
 
-.quodrant1,
-.quodrant2{
-    display: inline;
-    float: left;
-    width: 41%;
-    height: 70%;
-    border-radius: 30px;
-    margin: 4%;
-}
+  }
+  .t3 {
+    width: 250px; height:30px; margin-left:16%; font-size:16px;
+    border-radius: 12px;
 
-.quodrant1{
+  }
+  .t4 {
+    width: 250px; height:30px; margin-left:16%; font-size:16px;
+    border-radius: 12px;
+
+  }
+  .t5 {
+    width: 250px; height:30px; margin-left:16%; font-size:16px;
+    border-radius: 12px;
+
+  }
+  .t6 {
+    width: 250px; height:30px; margin-left:16%; font-size:16px;
+    border-radius: 12px;
+
+  }
+  .t1 {
+     height:30px; margin-left:16%; font-size:16px;
+     color: white;
+     font-size: 20px;
+     margin-left: 22px;
+    
+
+  }
+
+  .btn1 {
+      width: 100px;
+      height: 40px;
+      font-size: 12px;
+      background-color: #293250;
+      color: white;
+      
+  }
+  .btn2 {
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
     background-color: #293250;
-}
-
-.quodrant2{
-    background-color: #c4a35a;
-}
-
-
+      color: white;
+       
+  }
