@@ -61,5 +61,21 @@ def blog(request):
 def addblog(request):
     return render(request,'Add_blog.html',{})
 def registerUser(request):
+    if request.method == 'POST':
+        name=request.POST.get('name')
+        special=request.POST.get('special_instruction')
+        growth=request.POST.get('growth')
+        text=request.POST.get('text')
+        invest=request.POST.get('invest')
+        tag=request.POST.get('tag')
+        db.collection('RegisterUser').document().set({
+            'CompanyName':name,
+            'Instruction':special,
+            'Growth':growth,
+            'VideoUrl':text,
+            'PeopleInvested':invest,
+            'Tag':tag
+        })
+        return render(request,'blog.html')
     return render(request,'registerstartup.html',{})
 
