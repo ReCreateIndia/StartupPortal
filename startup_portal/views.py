@@ -61,5 +61,5 @@ def blog(request):
 def addblog(request):
     return render(request,'Add_blog.html',{})
 def registerUser(request):
-    return render(request,'form/form.html',{})
+    return render(request,'registerstartup.html',{})
 
