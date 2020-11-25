@@ -44,10 +44,7 @@ def login(request):
     if request.method == 'POST':
         email=request.POST.get('email')
         password=request.POST.get('password')
-        auth.sign_in_with_email_and_password(email, password)
-        db.collection('users').document(auth.current_user['localId']).set({
-            'username':email,
-        })
+        user=auth.sign_in_with_email_and_password(email, password)
         return redirect('/')
     return render(request,'login.html',{})
 
@@ -63,6 +60,6 @@ def blog(request):
     return render(request,'blog.html',{'docs': docs})
 def addblog(request):
     return render(request,'Add_blog.html',{})
-def basic(request):
-    return render(request,'home.html',{})
+def registerUser(request):
+    return render(request,'form/form.html',{})
 
