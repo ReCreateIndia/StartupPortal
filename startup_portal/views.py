@@ -51,7 +51,7 @@ def login(request):
 def home(request):
     if auth.current_user:
         auth.refresh(auth.current_user['refreshToken'])
-        return render(request,'layout.html',{'id':auth.current_user['localId']})
+        return render(request,'home.html',{'id':auth.current_user['localId']})
     return redirect('/login/')
 def help(request):
     return render(request,'help.html',{})
