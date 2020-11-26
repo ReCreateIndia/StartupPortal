@@ -21,47 +21,47 @@
 			<div class="wrap">
 				<form class="login-form " action="/register/" method="POST">
 					 {% csrf_token %}
-					<span class="login-form-title p-b-43" style="font-size:55px; margin-top:-80px;">
+					<span class="login-form-title p-b-43" style="font-size:55px; margin-top:-95px;">
 						CARVAAN
 					</span><br>
 					
 				   <div class="wrap-input" style="border: 1px solid #696969;">
-						<input class="input" type="text" name="team_name" placeholder="Team Name">
+						<input class="input" type="text" name="team_name" placeholder="Team Name" required/>
 						
 						<span class="label-input"></span>
 					</div>
 					
                     <div class="wrap-input" style="border: 1px solid #696969;">
                         
-						<input class="input" type="email" name="pass" placeholder="Email">
+						<input class="input" type="email" name="pass" placeholder="Email" required/>
 						
 						<span class="label-input"></span>
 					</div>
                     
                     <div class="wrap-input" style="border: 1px solid #696969;">
                         
-						<input class="input" type="phone Number" name="phone" placeholder="Phone Number">
+						<input class="input" type="phone Number" name="phone" placeholder="Phone Number" required/>
 						
 						<span class="label-input"></span>
 					</div>
-                         <div class="container" id="co2">
-
-              <label class="checkbox-inline">
-               		<input type="checkbox" value=""> Student
+                         <div class="container" id="co2" required>
+                     
+              <label class="checkbox-inline" style="font-size:25px;">
+               		<input type="checkbox" value="" style="font-size:25px; margin-left:-11px;"> Student
             </label>
-          	<label class="checkbox-inline">
-             	<input type="checkbox" value=""> Professional
+          	<label class="checkbox-inline" style="font-size:25px;">
+             	<input type="checkbox" value="" style="font-size:25px; margin-left:-11px;"> Professional
                  </label>
 					</div>
 					<div>
 						<h3 id="co1">Attach a document explaining the idea</h3>
-						<input type="file" class="btn" accept="Idea/" id="files" name="file"></input>
-						<input type="hidden" id="url" name="geturl" accept="Idea/">
-						<button type="button" onclick="upload()" class="btn">upload</button>
+						<input type="file" class="btn" accept="Idea/" id="files" name="file" style="background-color: #19343d; color:white; width:470px;" required></input>
+						<input type="hidden" id="url" name="geturl" accept="Idea/" style="background-color: #19343d;" required/>
+						<button type="button" onclick="upload()" class="btn"  style="background-color: #19343d; color:white;">upload</button>
 					</div>
 					   <!-- <input type="file" class="input"></input><br> -->
 					   
-					<button type="submit" class="btn"  style="margin-left: 110px; color: #696969; width:300px;">Register</button>
+					<button type="submit" class="btn"  style="margin-left: 110px; color: #696969; width:300px; background-color: #19343d; color:white;">Register</button>
 					
                 </form>
 
