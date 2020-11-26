@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
+from django.conf import settings
 from django.utils.datastructures import MultiValueDictKeyError
 from .config import firebaseConfig,serviceAccount
 from pathlib import Path
 import os
+from django.core.files.storage import FileSystemStorage 
 BASE_DIR = Path(__file__).resolve().parent.parent
 from .forms import RegisterForm
 config = {
@@ -31,13 +33,25 @@ storage=firebase.storage()
 email=""
 password=""
 def register(request):
-    if request.method == 'POST':
-        teamName=request.POST.get('team_name')
+    if request.method == 'POST' and request.FILES['file']:
+        teamName=request.POST.get('teamname')
+        email=request.POST.get('email')
+        number=request.POST.get('phone')
+        student=request.POST.get('student')
+        professional=request.POST.get('professional')
+        myfile = request.FILES['file']
+        storage.child('startupFiles').child(email).put(myfile)
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile) 
         db.collection('startups').document().set({
-            'TeamName':teamName,
-        
+            'teamName':teamName,
+            'email':email,
+            'number':number,
+            'student':student,
+            'professional':professional,
+            'filename':filename
         })
-        return render(request,'blog.html')
+        return redirect('/temp')
     return render(request, 'register.html',{})
 
 def login(request):
@@ -51,39 +65,76 @@ def login(request):
 def home(request):
     if auth.current_user:
         auth.refresh(auth.current_user['refreshToken'])
-        return render(request,'home.html',{'id':auth.current_user['localId']})
+        localId=auth.current_user['localId']
+        data = db.collection(u'shares').document(localId).get()
+        price = db.collection(u'shares').document(localId).collection("Price").document("price").get()
+        return render(request,'home.html',{'id':"Home Page","data":data,"price":price})
     return redirect('/login/')
 def help(request):
     return render(request,'help.html',{})
+def temp(request):
+    return render(request,'temp.html',{})
 def blog(request):
     docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
     return render(request,'blog.html',{'docs': docs})
 def addblog(request):
     return render(request,'Add_blog.html',{})
 def registerUser(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.FILES['logoFile']:
         username=request.POST.get('email')
         password=request.POST.get('password')
         auth.create_user_with_email_and_password(username, password)
         auth.sign_in_with_email_and_password(username, password)
+        localId=auth.current_user['localId']
+
+
+        myfile = request.FILES['logoFile']
+        storage.child('startupFiles').child(localId).put(myfile)
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+
+
+        storage.child("shareFiles").child(localId).child(filename).put(myfile)
+
+
+
+
+
+
+
+
+
+
+
         if auth.current_user:
-            name=request.POST.get('name')
-            special=request.POST.get('special_instruction')
+            name=request.POST.get('companyName')
+            special=request.POST.get('description')
             growth=request.POST.get('growth')
-            text=request.POST.get('text')
-            invest=request.POST.get('invest')
+            introVideoUrl=request.POST.get('introVideoUrl')
+            invest=request.POST.get('peopleInvested')
             tag=request.POST.get('tag')
-            db.collection('shares').document(auth.current_user['localId']).set({
+            buyingPrice=request.POST.get('buyingPrice')
+            occupied=request.POST.get('occupied')
+            sellingPrice=request.POST.get('sellingPrice')
+            totalShares=request.POST.get('totalShares')
+            db.collection('shares').document(localId).set({
                 'companyname':name,
                 'description':special,
                 'growth':growth,
                 'id':auth.current_user['localId'],
-                'introvideourl':text,
-                'logoUrl':"shareFiles/"+auth.current_user['localId']+"/",
+                'introvideourl':introVideoUrl,
+                'logoUrl':"shareFiles/"+auth.current_user['localId']+"/"+filename,
                 'peopleinvested':invest,
                 'tag':tag
             })
-            return render(request,'home.html')
+            db.collection('shares').document(localId).collection("Price").document("price").set({
+                'buyingPrice':buyingPrice,
+                'occupied':occupied,
+                'sellingPrice':sellingPrice,
+                'totalShares':totalShares
+
+            })
+            return redirect('/')
         else :
             return render(request,'login.html')
     return render(request,'registerstartup.html',{})

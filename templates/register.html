@@ -19,38 +19,38 @@
 	<div class="limiter">
 		<div class="container-login">
 			<div class="wrap">
-				<form class="login-form " action="/register/" method="POST">
+				<form class="login-form " action="/register/" method="POST" enctype="multipart/form-data">
 					 {% csrf_token %}
 					<span class="login-form-title p-b-43" style="font-size:55px; margin-top:-95px;">
 						CARVAAN
 					</span><br>
 					
 				   <div class="wrap-input" style="border: 1px solid #696969;">
-						<input class="input" type="text" name="team_name" placeholder="Team Name" required/>
+						<input class="input" type="text" name="teamname" placeholder="Team Name" required/>
 						
 						<span class="label-input"></span>
 					</div>
 					
                     <div class="wrap-input" style="border: 1px solid #696969;">
                         
-						<input class="input" type="email" name="pass" placeholder="Email" required/>
+						<input class="input" type="email" name="email" placeholder="Email" required/>
 						
 						<span class="label-input"></span>
 					</div>
                     
                     <div class="wrap-input" style="border: 1px solid #696969;">
                         
-						<input class="input" type="phone Number" name="phone" placeholder="Phone Number" required/>
+						<input class="input" type="phone Number" name="phone" placeholder="Whatsapp Number" required/>
 						
 						<span class="label-input"></span>
 					</div>
                          <div class="container" id="co2" required>
                      
               <label class="checkbox-inline" style="font-size:25px;">
-               		<input type="checkbox" value="" style="font-size:25px; margin-left:-11px;"> Student
+               		<input type="checkbox" name="student" value="" style="font-size:25px; margin-left:-11px;"> Student
             </label>
           	<label class="checkbox-inline" style="font-size:25px;">
-             	<input type="checkbox" value="" style="font-size:25px; margin-left:-11px;"> Professional
+             	<input type="checkbox" name="professional" value="" style="font-size:25px; margin-left:-11px;"> Professional
                  </label>
 					</div>
 					<div>
