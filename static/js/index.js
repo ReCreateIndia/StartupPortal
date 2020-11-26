@@ -10,7 +10,7 @@ var config = {
     };
     
     firebase.initializeApp(config);
-
+	document.getElementById('yash').innerHTML = "File Uploaded Successfully";
 	function upload()
 	{
 		var storage = firebase.storage();
@@ -28,7 +28,8 @@ var config = {
 
 		function(){
         thisref.snapshot.ref.getDownloadURL().then(function(downloadURL){
-            document.getElementById("url").value =  downloadURL;
+			document.getElementById("url").value =  downloadURL;
+			document.getElementById('yash').innerHTML = "File Uploaded Successfully";
 		});
 	});
 }
