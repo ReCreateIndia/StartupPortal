@@ -61,5 +61,30 @@ def blog(request):
 def addblog(request):
     return render(request,'Add_blog.html',{})
 def registerUser(request):
+    if request.method == 'POST':
+        username=request.POST.get('email')
+        password=request.POST.get('password')
+        auth.create_user_with_email_and_password(username, password)
+        auth.sign_in_with_email_and_password(username, password)
+        if auth.current_user:
+            name=request.POST.get('name')
+            special=request.POST.get('special_instruction')
+            growth=request.POST.get('growth')
+            text=request.POST.get('text')
+            invest=request.POST.get('invest')
+            tag=request.POST.get('tag')
+            db.collection('shares').document(auth.current_user['localId']).set({
+                'companyname':name,
+                'description':special,
+                'growth':growth,
+                'id':auth.current_user['localId'],
+                'introvideourl':text,
+                'logoUrl':"shareFiles/"+auth.current_user['localId']+"/",
+                'peopleinvested':invest,
+                'tag':tag
+            })
+            return render(request,'home.html')
+        else :
+            return render(request,'login.html')
     return render(request,'registerstartup.html',{})
 
