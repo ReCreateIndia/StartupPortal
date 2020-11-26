@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="testbox">
-    <form action="/registerUser/" method="POST">
+    <form action="/registerUser/" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
       <div class="banner" style="background-image: url('{% static 'background.jpg' %}');">
         
@@ -30,7 +30,7 @@
             </div>
           </div>
           </div>
-           <button type="submit" href="/">Submit</button><br><br>
+           
           
       </fieldset>
       <fieldset>
@@ -38,30 +38,39 @@
       <div class="item">
       <label for="name">Company Name</label>
       <div class="name-item">
-      <input id="name" type="text" name="name" placeholder="Company Name" style="height: 50px;" required/>
+      <input id="name" type="text" name="companyName" placeholder="Company Name" style="height: 50px;" required/>
+      </div>
+      </div>
       <div class="item">
-          <label for="instructions" style="margin-top: -25px;">Special Instructions</label>
-          <textarea id="instructions" rows="3" style="width: 500px; margin-top: -0px;"></textarea>
+        <label for="name">Desciption</label>
+        <div class="name-item">
+        <input id="name" type="text" name="description" placeholder="Description" style="height: 50px;" required/>
         </div>
-      </div>
-      </div>
-        
+        </div>
       <div class="item">
       <label for="growth">Growth</label>
-      <input id="bdate" type="number" name="growth" required/>
+      <input id="bdate" type="number" name="growth" placeholder="0" required/>
       
       <label for="video">Intro Video Url</label>
-      <input id="video" type="text" name="introUrl" required/>
+      <input id="video" type="text" name="introVideoUrl" placeholder="You Tube Video Id" required/>
       </div>
        <div class="item">
           <label for="picture">Upload logo</label>
-          <input id="picture" type="file" name="logo"/>
+          <input id="picture" type="file" name="logoFile" required/>
         </div>
           <div class="item">
               <label for="investment">People Invested</label>
-      <input id="investment" type="number" name="invest" required/>
+      <input id="investment" type="number" name="propleInvest" required/>
       <label for="tag">Tag</label>
       <input id="tag" type="text" name="tag" required/>
+      <label for="buyingPrice">Buying Price</label>
+      <input id="buyingPrice" type="text" name="buyingPrice" required/>
+      <label for="occupied">Occupied</label>
+      <input id="occupied" type="text" name="occupied" required/>
+      <label for="sellingPrice">Selling Price</label>
+      <input id="sellingPrice" type="text" name="sellingPrice" required/>
+      <label for="totalShares">Total Shares</label>
+      <input id="totalShares" type="text" name="totalShares" required/>
       </div>
      
       <div class="btn-block">
