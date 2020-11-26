@@ -19,40 +19,39 @@
 	<div class="limiter">
 		<div class="container-login">
 			<div class="wrap">
-				<form class="login-form " action="/register/" method="POST" enctype="multipart/form-data">
+				<form class="login-form " action="/register/" method="POST">
 					 {% csrf_token %}
 					<span class="login-form-title p-b-43" style="font-size:55px; margin-top:-95px;">
 						CARVAAN
 					</span><br>
 					
 				   <div class="wrap-input" style="border: 1px solid #696969;">
-						<input class="input" type="text" name="teamname" placeholder="Team Name" required/>
+						<input class="input" type="text" name="team_name" placeholder="Team Name" required/>
 						
 						<span class="label-input"></span>
 					</div>
 					
                     <div class="wrap-input" style="border: 1px solid #696969;">
                         
-						<input class="input" type="email" name="email" placeholder="Email" required/>
+						<input class="input" type="email" name="pass" placeholder="Email" required/>
 						
 						<span class="label-input"></span>
 					</div>
                     
                     <div class="wrap-input" style="border: 1px solid #696969;">
                         
-						<input class="input" type="phone Number" name="phone" placeholder="Whatsapp Number" required/>
+						<input class="input" type="phone Number" name="phone" placeholder="Phone Number" required/>
 						
 						<span class="label-input"></span>
 					</div>
-                         <div class="container" id="co2" required>
-                     
-              <label class="checkbox-inline" style="font-size:25px;">
-               		<input type="checkbox" name="student" value="" style="font-size:25px; margin-left:-11px;"> Student
-            </label>
-          	<label class="checkbox-inline" style="font-size:25px;">
-             	<input type="checkbox" name="professional" value="" style="font-size:25px; margin-left:-11px;"> Professional
-                 </label>
-					</div>
+                         <div class="select">
+                <select name="slct" id="slct" required>
+                      <option selected disabled required>Choose an option</option>
+                     <option value="1" name="student">Student</option>
+                      <option value="2" name="professional">Professional</option>
+                      
+                               </select>
+                               </div>
 					<div>
 						<h3 id="co1">Attach a document explaining the idea</h3>
 						<input type="file" class="btn" accept="Idea/" id="files" name="file" style="background-color: #19343d; color:white; width:470px;" required></input>
