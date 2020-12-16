@@ -78,7 +78,30 @@ def blog(request):
     docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
     return render(request,'blog.html',{'docs': docs})
 def addblog(request):
+    if request.method == 'POST' and request.FILES['logoFile']:
+        username=request.POST.get('email')
+        password=request.POST.get('password')
+        auth.create_user_with_email_and_password(username, password)
+        auth.sign_in_with_email_and_password(username, password)
+        localId=auth.current_user['localId']
+
+        if auth.current_user:
+                pasteurl=request.POST.get('pasteurl')
+                db.collection('shares').document(localId).set({
+                    'companyname':name,
+                    'description':special,
+                    'growth':growth,
+                    'id':auth.current_user['localId'],
+                    'introvideourl':introVideoUrl,
+                    'logoUrl':"shareFiles/"+auth.current_user['localId']+"/"+filename,
+                    'peopleinvested':invest,
+                    'tag':tag
+                })
+                return redirect('/')
+        else:
+            return render(request,'login.html')
     return render(request,'Add_blog.html',{})
+
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
         username=request.POST.get('email')
