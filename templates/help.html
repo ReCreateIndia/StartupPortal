@@ -3,22 +3,22 @@
 	<form action="" method="post" action="/help/">
           {% csrf_token %}
          <div class="container">
-             <label class="checkbox-inline" id="help1">
-               		<input type="checkbox" value="" id="help2 "> Ask for assistance
+             <label class="checkbox-inline" id="help1" style="margin-left: -150px;">
+               		<input type="checkbox" value="" id="help2"> Ask for assistance
             </label><br>
-          	<label class="checkbox-inline" id="help3">z
+          	<label class="checkbox-inline" id="help3" style="margin-left: -150px;">
              	<input type="checkbox" value="" id="in6"> Ask for mentor
                  </label><br>
-                        <label class="checkbox-inline" id="help4">
+                        <label class="checkbox-inline" id="help4" style="margin-left: -150px;">
              	<input type="checkbox" value="" id="help5"> Increase my share price
                  </label><br><br>
            <div class="front">
-            <p id="in1">Attach a Document supporting your request</p>
-            <input type="file" class="btn btn-outline-light" accept="HelpPost/" id="in2" name="file"></input>
+            <p id="in1" style="margin-left: 10px;">Attach a Document supporting your request</p>
+            <input type="file" class="btn btn-outline-light" accept="HelpPost/" id="in2" name="file" style="width: 300px; margin-left: -100px;"></input>
             <input type="hidden" id="url" name="geturl" accept="HelpPost/">
-            <button type="button" onclick="upload_B()"></button> 
+           
         </div><br>
-            <div class="toppane4" contentEditable=true placeholder="add comment" id="main1"></div>
+            <div class="toppane4" contentEditable=true placeholder="add comment" id="main1" ></div>
            <a type="button" class="btn btn-outline-light" id="in9" >Submit</a>
 </div>
         <br><br>
