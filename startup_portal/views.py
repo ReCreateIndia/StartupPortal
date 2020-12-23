@@ -71,7 +71,24 @@ def home(request):
         return render(request,'home.html',{'id':"Home Page","data":data,"price":price})
     return redirect('/login/')
 def help(request):
-    return render(request,'help.html',{})
+    if auth.current_user:
+        Ask_for_Assistance=request.POST.get('help2')
+        Ask_for_Mentor=request.POST.get('help3')
+        Increase_My_Share_Price=request.POST.get('help4')
+        myfile = request.FILES['file']
+        storage.child('startupFiles').child(email).put(myfile)
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        Add_Comment=request.POST.get('area')
+        db.collection('help').document().set({
+            'Ask_for_Assistance':Ask_for_Assistance,
+            'Ask_for_Mentor':Ask_for_Mentor,
+            'Increase_My_Share_Price':Increase_My_Share_Price,
+            'Add_Comment':Add_Comment,
+            'filename':filename
+        })
+        return render(request,'help.html',{})
+    return redirect('/login/')
 def temp(request):
     return render(request,'temp.html',{})
 def blog(request):
