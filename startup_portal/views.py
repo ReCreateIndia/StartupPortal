@@ -79,7 +79,7 @@ def help(request):
             Ask_for_Mentor=request.POST.get('help3')
             Increase_My_Share_Price=request.POST.get('help4')
             myfile = request.FILES['logoFile']
-            storage.child('startupFiles').child(email).put(myfile)
+            storage.child('startupFiles').child("email").put(myfile)
             fs = FileSystemStorage()
             filename = fs.save(myfile.name, myfile)
             Add_Comment=request.POST.get('area')
