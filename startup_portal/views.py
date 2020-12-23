@@ -71,14 +71,57 @@ def home(request):
         return render(request,'home.html',{'id':"Home Page","data":data,"price":price})
     return redirect('/login/')
 def help(request):
-    return render(request,'help.html',{})
+    if auth.current_user:
+        if request.method=='GET':
+            return render(request,'help.html',{})
+        if request.method == 'POST' and request.FILES['help_file']:
+            Ask_for_Assistance=request.POST.get('help2')
+            Ask_for_Mentor=request.POST.get('help3')
+            Increase_My_Share_Price=request.POST.get('help4')
+            myfile = request.FILES['help_file']
+            storage.child('startupFiles').child(email).put(myfile)
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            Add_Comment=request.POST.get('area')
+            db.collection('help').document().set({
+                'Ask_for_Assistance':Ask_for_Assistance,
+                'Ask_for_Mentor':Ask_for_Mentor,
+                'Increase_My_Share_Price':Increase_My_Share_Price,
+                'Add_Comment':Add_Comment,
+                'filename':filename
+            })
+            return render(request,'help.html',{})
+    return redirect('/login/')
 def temp(request):
     return render(request,'temp.html',{})
 def blog(request):
     docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
     return render(request,'blog.html',{'docs': docs})
 def addblog(request):
+    if request.method == 'POST' and request.FILES['logoFile']:
+        username=request.POST.get('email')
+        password=request.POST.get('password')
+        auth.create_user_with_email_and_password(username, password)
+        auth.sign_in_with_email_and_password(username, password)
+        localId=auth.current_user['localId']
+
+        if auth.current_user:
+                pasteurl=request.POST.get('pasteurl')
+                db.collection('shares').document(localId).set({
+                    'companyname':name,
+                    'description':special,
+                    'growth':growth,
+                    'id':auth.current_user['localId'],
+                    'introvideourl':introVideoUrl,
+                    'logoUrl':"shareFiles/"+auth.current_user['localId']+"/"+filename,
+                    'peopleinvested':invest,
+                    'tag':tag
+                })
+                return redirect('/')
+        else:
+            return render(request,'login.html')
     return render(request,'Add_blog.html',{})
+
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
         username=request.POST.get('email')

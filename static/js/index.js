@@ -10,7 +10,6 @@ var config = {
     };
     
     firebase.initializeApp(config);
-
 	function upload()
 	{
 		var storage = firebase.storage();
@@ -28,7 +27,7 @@ var config = {
 
 		function(){
         thisref.snapshot.ref.getDownloadURL().then(function(downloadURL){
-            document.getElementById("url").value =  downloadURL;
+			document.getElementById("url").value =  downloadURL;
 		});
 	});
 }
