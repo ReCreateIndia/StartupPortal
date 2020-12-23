@@ -19,7 +19,7 @@
 	<div class="limiter">
 		<div class="container-login">
 			<div class="wrap">
-				<form class="login-form " action="/register/" method="POST">
+				<form class="login-form " action="/register/" method="POST" enctype="multipart/form-data">
 					 {% csrf_token %}
 					<span class="login-form-title p-b-43" style="font-size:55px; margin-top:-145px;">
 						CARVAAN
@@ -54,7 +54,7 @@
                                </div>
 					<div>
 						<h3 id="co1">Attach a document explaining the idea</h3>
-						<input type="file" class="btn" accept="Idea/" id="files" name="file" style="background-color: #19343d; color:white; width:470px;" required></input>
+						<input type="file" class="btn" accept="Idea/" id="files" name="blueone" style="background-color: #19343d; color:white; width:470px;" required></input>
 						<input type="hidden" id="url" name="geturl" accept="Idea/" style="background-color: #19343d;" required/>
 						<button type="button" onclick="upload()" class="btn"  style="background-color: #19343d; color:white;">upload</button>
 					</div>

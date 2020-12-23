@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-	<form action="" method="post" action="/help/">
+	<form  method="post" action="/help/" enctype="multipart/form-data">
           {% csrf_token %}
          <div class="container">
              <label class="checkbox-inline" id="help1" style="margin-left: -150px;">
@@ -14,8 +14,8 @@
                  </label><br><br>
            <div class="front">
             <p id="in1" style="margin-left: 10px;">Attach a Document supporting your request</p>
-            <input type="file" class="btn btn-outline-light" accept="HelpPost/" id="in2" name="help_file" style="width: 300px; margin-left: -100px;"></input>
-            <input type="hidden" id="url" name="geturl" accept="HelpPost/">
+            <input type="file" class="btn btn-outline-light" id="in2" name="logoFile" style="width: 300px; margin-left: -100px;"></input>
+            <input type="hidden" id="url" name="geturl" >
            
         </div><br>
             <div class="toppane4" contentEditable=true placeholder="add comment" id="main1" ></div>

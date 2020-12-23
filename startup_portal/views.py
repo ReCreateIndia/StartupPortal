@@ -33,13 +33,13 @@ storage=firebase.storage()
 email=""
 password=""
 def register(request):
-    if request.method == 'POST' and request.FILES['file']:
+    if request.method == 'POST' and request.FILES['blueone']:
         teamName=request.POST.get('teamname')
         email=request.POST.get('email')
         number=request.POST.get('phone')
         student=request.POST.get('student')
         professional=request.POST.get('professional')
-        myfile = request.FILES['file']
+        myfile = request.FILES['blueone']
         storage.child('startupFiles').child(email).put(myfile)
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile) 
@@ -74,11 +74,11 @@ def help(request):
     if auth.current_user:
         if request.method=='GET':
             return render(request,'help.html',{})
-        if request.method == 'POST' and request.FILES['help_file']:
+        if request.method == 'POST' and request.FILES['logoFile']:
             Ask_for_Assistance=request.POST.get('help2')
             Ask_for_Mentor=request.POST.get('help3')
             Increase_My_Share_Price=request.POST.get('help4')
-            myfile = request.FILES['help_file']
+            myfile = request.FILES['logoFile']
             storage.child('startupFiles').child(email).put(myfile)
             fs = FileSystemStorage()
             filename = fs.save(myfile.name, myfile)
