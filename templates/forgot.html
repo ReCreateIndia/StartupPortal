@@ -1,0 +1,59 @@
+<!--<form action="/login/" id="query" class="form-inline" method="POST">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="email" class="team2">Email - </label><br>
+                    {{form.email}}
+        </div>
+        <div class="form-group" id="form3">
+            <label for="phone number" class="team3">Password - </label><br>
+                   {{form.password}}
+        </div>
+        <input type="submit" class="btn" href="#" style="margin-left: 210px;">
+    </form> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<title>Carvaan</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login">
+			<div class="wrap">
+				<form class="login-form" method="POST"  action="/login/" id="query">
+                    {% csrf_token %}
+					<span class="login-form-title p-b-43" id="fo1">
+						StartupCarvaan
+					</span><br>
+					
+				   <div class="wrap-input" style="border: 1px solid #696969;">
+                       <span class="label-input"></span>						
+						<input class="input" type="text" name="email" placeholder="Type your email" required="true">
+					</div>
+					
+					<br>
+					<div class="container-login-form-btn">
+						<button class="login-form-btn" id="fo2">
+							Reset my password
+						</button>
+					</div>
+				
+				</form>
+
+				<div class="login-more" style="background-image: url('{% static 'bg-01.jpeg' %}');">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+</body>
+</html>
