@@ -37,14 +37,19 @@ def register(request):
         teamName=request.POST.get('teamname')
         email=request.POST.get('email')
         number=request.POST.get('phone')
-        slct=request.POST.get('slct')
-        # myfile = request.FILES['blueone']
-        # storage.child("shareFiles").child(email).put(myfile)
-        db.collection('startups').document().set({
+        student=request.POST.get('student')
+        professional=request.POST.get('professional')
+        myfile = request.FILES['blueone']
+        storage.child('startupFiles').child(email).put(myfile)
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile) 
+        db.collection('registration').document().set({
             'teamName':teamName,
-            'email':email,  
+            'email':email,
             'number':number,
-            'slct':slct
+            'student':student,
+            'professional':professional,
+            'filename':filename
         })
         return redirect('/temp')
     return render(request, 'register.html',{})
@@ -73,16 +78,17 @@ def help(request):
             Ask_for_Assistance=request.POST.get('help2')
             Ask_for_Mentor=request.POST.get('help3')
             Increase_My_Share_Price=request.POST.get('help4')
-            # myfile = request.FILES['logoFile']
-            # storage.child("news").put(myfile)
-            # fs = FileSystemStorage()
-            # filename = fs.save(myfile.name, myfile)
+            myfile = request.FILES['logoFile']
+            storage.child('startupFiles').child("email").put(myfile)
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
             Add_Comment=request.POST.get('area')
             db.collection('help').document().set({
                 'Ask_for_Assistance':Ask_for_Assistance,
                 'Ask_for_Mentor':Ask_for_Mentor,
                 'Increase_My_Share_Price':Increase_My_Share_Price,
                 'Add_Comment':Add_Comment,
+                'filename':filename
             })
             return render(request,'help.html',{})
     return redirect('/login/')
@@ -118,16 +124,32 @@ def addblog(request):
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
+        username=request.POST.get('email')
+        password=request.POST.get('password')
+        auth.create_user_with_email_and_password(username, password)
+        auth.sign_in_with_email_and_password(username, password)
+        localId=auth.current_user['localId']
+
+
+        myfile = request.FILES['logoFile']
+        storage.child('startupFiles').child(localId).put(myfile)
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+
+
+        storage.child("shareFiles").child(localId).child(filename).put(myfile)
+
+
+
+
+
+
+
+
+
+
+
         if auth.current_user:
-            username=request.POST.get('email')
-            password=request.POST.get('password')
-            auth.create_user_with_email_and_password(username, password)
-            auth.sign_in_with_email_and_password(username, password)
-            localId=auth.current_user['localId']
-            # myfile = request.FILES['logoFile']
-            # fs = FileSystemStorage()
-            # filename = fs.save(myfile.name, myfile)
-            # storage.put(myfile)
             name=request.POST.get('companyName')
             special=request.POST.get('description')
             growth=request.POST.get('growth')
@@ -144,7 +166,7 @@ def registerUser(request):
                 'growth':growth,
                 'id':auth.current_user['localId'],
                 'introvideourl':introVideoUrl,
-                # 'logoUrl':"shareLogo/"+auth.current_user['localId']+"/"+filename,
+                'logoUrl':"shareFiles/"+auth.current_user['localId']+"/"+filename,
                 'peopleinvested':invest,
                 'tag':tag
             })
