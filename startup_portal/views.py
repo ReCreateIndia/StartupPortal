@@ -105,17 +105,24 @@ def addblog(request):
             localId=auth.current_user['localId']
             title=request.POST.get('title')
             videourl=request.POST.get('videourl')
-            needAsistance=request.POST.get('assistance')
-            needFreelancer=request.POST.get('freelancing')
-            needIntern=request.POST.get('intern')
+            needAsistance=True
+            needFreelancer=True
+            needIntern=True
+            if request.POST.get('assistance')==0:
+                needAsistance=False
+            if request.POST.get('freelancing')==0:
+                needFreelancer=False
+            if request.POST.get('intern')==0:
+                needIntern=False
             db.collection('shares').document(localId).collection('Bloging').document(id).set({
+                'id':id,
                 'title':title,
                 'url':videourl,
                 'needAsistance':needAsistance,
                 'needFreelancer':needFreelancer,
                 'needIntern':needIntern,
-                'UsersLiking':[{}],
-                'comments':[{}]
+                'UsersLiking':{},
+                'comments':{}
             })
             return redirect('/')
         else:
