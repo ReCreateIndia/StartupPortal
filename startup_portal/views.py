@@ -7,6 +7,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from .config import firebaseConfig,serviceAccount
 from pathlib import Path
 import os
+import uuid
 from django.core.files.storage import FileSystemStorage 
 BASE_DIR = Path(__file__).resolve().parent.parent
 from .forms import RegisterForm
@@ -98,26 +99,23 @@ def blog(request):
     docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
     return render(request,'blog.html',{'docs': docs})
 def addblog(request):
-    if request.method == 'POST' and request.FILES['logoFile']:
-        username=request.POST.get('email')
-        password=request.POST.get('password')
-        auth.create_user_with_email_and_password(username, password)
-        auth.sign_in_with_email_and_password(username, password)
-        localId=auth.current_user['localId']
-
+    if request.method == 'POST':
         if auth.current_user:
-                pasteurl=request.POST.get('pasteurl')
-                db.collection('shares').document(localId).set({
-                    'companyname':name,
-                    'description':special,
-                    'growth':growth,
-                    'id':auth.current_user['localId'],
-                    'introvideourl':introVideoUrl,
-                    'logoUrl':"shareFiles/"+auth.current_user['localId']+"/"+filename,
-                    'peopleinvested':invest,
-                    'tag':tag
-                })
-                return redirect('/')
+            id=uuid.uuid1()
+            localId=auth.current_user['localId']
+            videourl=request.POST.get('videourl')
+            needAsistance=request.POST.get('assistance')
+            needFreelancer=request.POST.get('freelancing')
+            needIntern=request.POST.get('intern')
+            db.collection('shares').document(localId).collection('Bloging').document(id).set({
+                'url':videourl,
+                'needAsistance':needAsistance,
+                'needFreelancer':needFreelancer,
+                'needIntern':needIntern,
+                'UsersLiking':[{}],
+                'comments':[{}]
+            })
+            return redirect('/')
         else:
             return render(request,'login.html')
     return render(request,'Add_blog.html',{})

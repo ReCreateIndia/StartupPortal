@@ -3,26 +3,25 @@
 	<div id="set">
        <div class="container">
             <div class="middlepane">
-            <form>
+            <form method="POST" action="/addblog/">
+                {% csrf_token %}
                 <div class="container">
-            <div class="toppane3" contentEditable=true placeholder="Paste Url" style="background-color: #add8e6;"></div>
-                    
-                    <!--mid part-->
+                <div class="toppane3" name="videourl" contentEditable=true placeholder="Paste Url" style="background-color: #add8e6;"></div>
                     <div class="toppane2">
-                        <p id="in10"></p>
-                         <label class="checkbox-inline" id="in3">
-               		<input type="checkbox" value="" id="in4 "> Ask for intern
+                    <p id="in10"></p>
+                    <label class="checkbox-inline" id="in3">
+               		<input type="checkbox" name="intern" value="" id="in4 "> Ask for intern
                 </label><br>
           	<label class="checkbox-inline" id="in5">
-             	<input type="checkbox" value="" id="in6"> Ask for freelancing
+             	<input type="checkbox" name="freelancing" value="" id="in6"> Ask for freelancing
                  </label><br>
                         <label class="checkbox-inline" id="in7">
-             	<input type="checkbox" value="" id="in8"> Ask for feedback
+             	<input type="checkbox" name="assistance" value="" id="in8"> Ask for assistance
                  </label>
                     </div>
                      <!--End-->
                     <div class="toppane3" contentEditable=true placeholder="add discription"></div>
-                    <a type="button" class="btn btn-outline-light" id="in9" >Add Blog</a>
+                    <button type="submit" class="btn btn-outline-light" id="in9" >Add Blog</a>
             
 </div>
                 </form>
