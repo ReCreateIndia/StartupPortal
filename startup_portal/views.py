@@ -101,13 +101,15 @@ def blog(request):
 def addblog(request):
     if request.method == 'POST':
         if auth.current_user:
-            id=uuid.uuid1()
+            id=str(uuid.uuid1())
             localId=auth.current_user['localId']
+            title=request.POST.get('title')
             videourl=request.POST.get('videourl')
             needAsistance=request.POST.get('assistance')
             needFreelancer=request.POST.get('freelancing')
             needIntern=request.POST.get('intern')
             db.collection('shares').document(localId).collection('Bloging').document(id).set({
+                'title':title,
                 'url':videourl,
                 'needAsistance':needAsistance,
                 'needFreelancer':needFreelancer,
