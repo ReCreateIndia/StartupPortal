@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 {% load static %}
-<title>Carvaan</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="/static/css/layout1.css" rel="stylesheet" type="text/css" media="all">
-    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
-       <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-grid.css">
-		<link rel="stylesheet" type="text/css" href="/static/css/layout.css">
-    
-    <link href="/static/css/custom.flexslider.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/static/css/framework.css" rel="stylesheet" type="text/css" media="all">
-    
-    
+    <!-- Basic -->
+    <title>{{id}}</title>
+	<!-- fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+
+
 </head>
-<body id="top">
+<body class="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98" id="top">
 <nav class="navbar navbar-dark bg-dark text-light justify-content-between">
-  <a class="navbar-brand" style="margin-top:20px; margin-left:30px;"> <h1> StartupCarvaan </h1> </a>
+  <a class="navbar-brand"> <h1 style="color: white;"> StartupCarvaan </h1> </a>
   <div class="d-flex align-items-center">Username</div>
   <form class="form-inline">
     <button type="button" class="btn btn-outline-danger text-light my-2 my-sm-0"> Logout </button>
@@ -41,56 +41,78 @@
     <div id="main" style="margin-top: 300px;">
 	<article class="post featured">
 	<header class="major">
-<div class="wrapper row3">
-  <div class="hoc container clear"> 
     
-    <div class="posts">
-      <figure class="group">
-        <div> <iframe height="175px;" class="iframe" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen></iframe></div>
-        <figcaption>
-              <div class="post-title">
-                            <h7 style="font-family: fantasy;" >Title:&nbsp;&nbsp;&nbsp;&nbsp;This is a short title</h7><br>
-                            <h7 style="font-family:serif;">Description:&nbsp;&nbsp;This is a short description</h7>
-                        </div>
-          
-            <footer><a class="btn" href="#">Details &raquo;</a></footer>
-         
-        </figcaption>
-      </figure>
-      
-      <figure class="group">
-        <div><iframe height="175px;" class="iframe" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen></iframe></div>
-        <figcaption>
-         <div class="post-title">
-                             <h7 style="font-family: fantasy;" >Title:&nbsp;&nbsp;&nbsp;&nbsp;This is a short title</h7><br>
-                            <h7 style="font-family:serif;">Description:&nbsp;&nbsp;This is a short description</h7>
-                        </div>
-          
-            
-            <footer><a class="btn" href="#">Details &raquo;</a></footer>
-         
-          
-        </figcaption>
-      </figure>
-        <figure class="group">
-        <div><iframe height="175px;" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen class="iframe"></iframe></div>
-        <figcaption>
-          <div class="post-title">
-                            <h7 style="font-family: fantasy;" >Title:&nbsp;&nbsp;&nbsp;&nbsp;This is a short title</h7><br>
-                            <h7 style="font-family:serif;">Description:&nbsp;&nbsp;This is a short description</h7>
-                        </div>
-        
-            <footer><a class="btn" href="#">Details &raquo;</a></footer>
-         
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</div>
+	
+    <div id="features" class="section lb">
+        <div class="container">
+
+            <div class="row" style="margin-left: 90px;">
+				<div class="col-xs-18 col-sm-12 col-md-5" id="c1">
+                    <div class="services-inner-box">
+						<div><iframe height="175px;" width="250px" class="iframe" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen></iframe></div><br>
+						
+						<p style="color: black;">Title - This is short title </p>
+                        <p style="color: black;">Description - This is short Description </p>
+                        <a type="button" href="#">Detail</a>
+					</div>
+                </div><!-- end col -->
+               <!-- end col -->
+               <div class="col-xs-18 col-sm-12 col-md-5">
+                    <div class="services-inner-box">
+						<div><iframe height="175px;" width="250px" class="iframe" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen></iframe></div><br>
+						
+						<p style="color: black;">Title - This is short title </p>
+                        <p style="color: black;">Description - This is short Description </p>
+                        <a type="button" href="#">Detail</a>
+					</div>
+                </div><!-- end col -->
+               <div class="col-xs-18 col-sm-12 col-md-5">
+                    <div class="services-inner-box">
+						<div><iframe height="175px;" width="250px" class="iframe" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen></iframe></div><br>
+						
+						<p style="color: black;">Title - This is short title </p>
+                        <p style="color: black;">Description - This is short Description </p>
+                        <a type="button" href="#">Detail</a>
+					</div>
+                </div><!-- end col -->
+				<div class="col-xs-18 col-sm-12 col-md-5">
+                    <div class="services-inner-box">
+						<div><iframe height="175px;" width="250px" class="iframe" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen></iframe></div><br>
+						
+						<p style="color: black;">Title - This is short title </p>
+                        <p style="color: black;">Description - This is short Description </p>
+                        <a type="button" href="#">Detail</a>
+					</div>
+                </div><!-- end col -->
+				<div class="col-xs-18 col-sm-12 col-md-5">
+                    <div class="services-inner-box">
+						<div><iframe height="175px;" width="250px" class="iframe" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen></iframe></div><br>
+						
+						<p style="color: black;">Title - This is short title </p>
+                        <p style="color: black;">Description - This is short Description </p>
+                        <a type="button" href="#">Detail</a>
+					</div>
+                </div><!-- end col -->
+				<div class="col-xs-18 col-sm-12 col-md-5">
+                    <div class="services-inner-box">
+						<div><iframe height="175px;" width="250px" class="iframe" src="https://www.youtube.com/embed/b4hrUSBP4nc" frameborder="0" allowfullscreen></iframe></div><br>
+						
+						<p style="color: black;">Title - This is short title </p>
+                        <p style="color: black;">Description - This is short Description </p>
+                        <a type="button" href="#">Detail</a>
+					</div>
+                </div><!-- end col -->
+            </div>
+			
+        </div><!-- end container -->
+          </div>
+   
+
         </header>
     </article>
     </div>
 
-
+    
+	
 </body>
 </html>
