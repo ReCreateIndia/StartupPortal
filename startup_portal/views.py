@@ -96,11 +96,15 @@ def help(request):
 def temp(request):
     return render(request,'temp.html',{})
 def blog(request):
-    docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
-    return render(request,'blog.html',{'docs': docs})
+    if auth.current_user:
+        docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
+        return render(request,'blog.html',{'docs': docs})
+    return redirect('/login/')    
 def addblog(request):
-    if request.method == 'POST':
-        if auth.current_user:
+    if auth.current_user:
+        if request.method=='GET':
+            return render(request,'Add_blog.html',{})
+        if request.method == 'POST':
             id=str(uuid.uuid1())
             localId=auth.current_user['localId']
             title=request.POST.get('title')
@@ -124,10 +128,8 @@ def addblog(request):
                 'UsersLiking':{},
                 'comments':{}
             })
-            return redirect('/')
-        else:
-            return render(request,'login.html')
-    return render(request,'Add_blog.html',{})
+            return render(request,'Add_blog.html',{})
+    return redirect('/login/')    
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
@@ -145,17 +147,6 @@ def registerUser(request):
 
 
         storage.child("shareFiles").child(localId).child(filename).put(myfile)
-
-
-
-
-
-
-
-
-
-
-
         if auth.current_user:
             name=request.POST.get('companyName')
             special=request.POST.get('description')
@@ -189,3 +180,14 @@ def registerUser(request):
             return render(request,'login.html')
     return render(request,'registerstartup.html',{})
 
+def logout(request):
+        auth.current_user = None
+        return render(request,'login.html')
+
+def forgot(request):
+    if request.method=='GET':
+        return render(request,'forgot.html')
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        auth.send_password_reset_email(email)
+        return render(request,'login.html')
