@@ -15,6 +15,10 @@
 	
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+	  <link rel="stylesheet" type="text/css" href="{% static 'css/try.css' %}">
+	
 	
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 	<!-- js addblog -->
@@ -22,6 +26,57 @@
 	<script src="{% static 'js/index1.js' %}"></script>
 	<!-- jquery online -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	 <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Sales'],
+          ['1',  1  ],
+          ['2',  1170  ],
+          ['3',  660   ],
+          ['4',  1030  ],
+          ['5',  1  ],
+          ['6',  1170  ],
+          ['7',  660   ],
+          ['8',  1030  ],
+          ['9',  1  ],
+          ['10',  1170  ],
+          ['11',  660   ],
+          ['12',  1030  ],
+          ['13',  1  ],
+          ['14',  1170  ],
+          ['15',  660   ],
+          ['16',  1030  ],
+          ['17',  1  ],
+          ['18',  1170  ],
+          ['19',  660   ],
+          ['20',  1030  ],
+          ['21',  1  ],
+          ['22',  1170  ],
+          ['23',  660   ],
+          ['24',  1030  ],
+          ['25',  1  ],
+          ['26',  1170  ],
+          ['27',  660   ],
+          ['28',  1030  ],
+          ['29',  1  ],
+          ['30',  1170  ],
+          ['31',  660   ]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 <body>
 <!-- Navbar -->
@@ -35,14 +90,13 @@
 <br>
 <center>
 <div class="btn-group" role="group" aria-label="Basic example">
-	<a type="button" id="btn1" href="/" class="btn btn-outline-dark btn-lg" > Home </a>
+	<a type="button" id="btn1" href="/" class="btn btn-dark btn-lg" > Home </a>
 	<a type="button" id="btn2" href="/blog/" class="btn btn-outline-dark btn-lg " > My Blogs </a>
-  	<a type="button" id="btn3" href="/addblog/" class="btn btn-dark btn-lg"> Add a Blogs </a>
+  	<a type="button" id="btn3" href="/addblog/" class="btn btn-outline-dark btn-lg"> Add a Blogs </a>
   	<a type="button" id="btn4" href="/help/" class="btn btn-outline-dark btn-lg"> Help </a>
 </div>
 <br><br>
 </center>
-
 <div id="main" style="margin-top: 300px;">
 	<article class="post featured">
 	<header class="major">
@@ -54,10 +108,13 @@
 	
 
 <!-- Javascript and some files -->
-<script type="text/Javascript" src="home.js"></script>
+
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="{% static 'js/layout.js' %}"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="{% static 'js/addblog.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
