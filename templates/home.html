@@ -1,47 +1,149 @@
-{% extends "layout.html" %}
-{% block content %}
-	<div class="container" style="width:100%; height:auto; background:#f2bc94; display:flex; flex-direction:row; justify-content:center; flex-flow:wrap; border-radius: 40px; padding: 10px; margin-top: 17px;">
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	{% load static %}
+	<title>{{id}}</title>
+	<!-- fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- firebase -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/try.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+	<!-- js addblog -->
+	<script src="{% static 'js/addblog.js' %}"></script>
+	<!-- jquery online -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- GOOGLE CHARTS -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Sales'],
+          ['1',  1  ],
+          ['2',  1170  ],
+          ['3',  660   ],
+          ['4',  1030  ],
+          ['5',  1  ],
+          ['6',  1170  ],
+          ['7',  660   ],
+          ['8',  1030  ],
+          ['9',  1  ],
+          ['10',  1170  ],
+          ['11',  660   ],
+          ['12',  1030  ],
+          ['13',  1  ],
+          ['14',  1170  ],
+          ['15',  660   ],
+          ['16',  1030  ],
+          ['17',  1  ],
+          ['18',  1170  ],
+          ['19',  660   ],
+          ['20',  1030  ],
+          ['21',  1  ],
+          ['22',  1170  ],
+          ['23',  660   ],
+          ['24',  1030  ],
+          ['25',  1  ],
+          ['26',  1170  ],
+          ['27',  660   ],
+          ['28',  1030  ],
+          ['29',  1  ],
+          ['30',  1170  ],
+          ['31',  660   ]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark text-light justify-content-between">
+  <a class="navbar-brand"> <h1> Carvaan </h1> </a>
+  <div class="d-flex align-items-center">Username</div>
+  <a type="button" href="/logout/" class="btn btn-outline-danger text-light my-2 my-sm-0"> Logout </a>
+</nav>
+
+<!-- 3 Fixed Buttons -->
+<br>
+<center>
+<div class="btn-group" role="group" aria-label="Basic example">
+	<a type="button" id="btn1" href="/" class="btn btn-dark btn-lg" > Home </a>
+  <a type="button" id="btn2" href="/blog/" class="btn btn-outline-dark btn-lg " > My Blogs </a>
+  <a type="button" id="btn3" href="/addblog/" class="btn btn-outline-dark btn-lg"> Add a Blogs </a>
+  <a type="button" id="btn4" href="/help/" class="btn btn-outline-dark btn-lg"> Help </a>
+</div>
+<br><br>
+</center>
+	<div class="container">
    <div class="box1">
 <div class="post-info flex-row" >
-                                <span class="try1">Growth&nbsp;&nbsp;{{data.to_dict.growth}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <span class="t1">Growth&nbsp;&nbsp;{{data.to_dict.growth}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 								 
     
                             </div>
                             <div class="post-info flex-row" >
                                
-								 <span class="try1">People invested&nbsp;&nbsp;{{data.to_dict.peopleinvested}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								 <span class="t1">People invested&nbsp;&nbsp;{{data.to_dict.peopleinvested}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     
                             </div>
  <div class="post-info flex-row" >
-                                <span class="try1">Buying price&nbsp;&nbsp;{{price.to_dict.buyingPrice}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <span class="t1">Buying price&nbsp;&nbsp;{{price.to_dict.buyingPrice}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 								 
     
                             </div>
                             <div class="post-info flex-row" >
                                
-								 <span class="try1">Selling price&nbsp;&nbsp;{{price.to_dict.sellingPrice}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								 <span class="t1">Selling price&nbsp;&nbsp;{{price.to_dict.sellingPrice}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     
                             </div>
 							<div class="post-info flex-row" >
-                                <span class="try1">Total Shares &nbsp;&nbsp;{{price.to_dict.totalShares}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <span class="t1">Total Shares &nbsp;&nbsp;{{price.to_dict.totalShares}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 								 
     
                             </div>
                             <div class="post-info flex-row" >
                                 
-								 <span class="try1">Occupied&nbsp;&nbsp;{{price.to_dict.occupied}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								 <span class="t1">Occupied&nbsp;&nbsp;{{price.to_dict.occupied}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     
                             </div>
 
 
    </div>
 <div class="box2">
-<button class="bt1">Share</button>
-<button class="bt2">Coin</button><br><br>
+<button class="btn1">Share</button>
+<button class="btn2">Coin</button><br><br>
 <div id="curve_chart" style="width: 400px; height: 250px; margin: 0 auto;" class="rec"></div>
 
 </div>
 
 
 </div>
-{% endblock content %}
+
+<!-- Javascript and some files -->
+<!--<script type="text/Javascript" src="home.js"></script>-->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="{% static 'js/layout.js' %}"></script>
+</body>
+</html>
