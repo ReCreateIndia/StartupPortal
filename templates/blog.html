@@ -1,44 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% load static %}
-    <!-- Basic -->
-    <title>{{id}}</title>
-	<!-- fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-	
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
-  	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
-
-
-</head>
-<body class="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98" id="top">
-<nav class="navbar navbar-dark bg-dark text-light justify-content-between">
-  <a class="navbar-brand"> <h1 style="color: white; font-size:35px;"> StartupCarvaan </h1> </a>
-  <div class="d-flex align-items-center">Username</div>
-  <a type="button" href="/logout/" class="btn btn-outline-danger text-light my-2 my-sm-0"> Logout </a>
-</nav>
-
-<!-- 3 Fixed Buttons -->
-<br>
-<center>
-<div class="btn-group" role="group" aria-label="Basic example">
-	<a type="button" id="btn1" href="/" class="btn btn-dark btn-lg" > Home </a>
-  <a type="button" id="btn2" href="/blog/" class="btn btn-outline-dark btn-lg " > My Blogs </a>
-  <a type="button" id="btn3" href="/addblog/" class="btn btn-outline-dark btn-lg"> Add a Blogs </a>
-  <a type="button" id="btn4" href="/help/" class="btn btn-outline-dark btn-lg"> Help </a>
-</div>
-<br><br>
-</center>
-    <div id="main" style="margin-top: 300px;">
-	<article class="post featured">
-	<header class="major">
+{% extends "layout.html" %}
+{% block content %}
     
 	
     <div id="features" class="section lb">
@@ -106,11 +67,5 @@
           </div>
    
 
-        </header>
-    </article>
-    </div>
-
-    
+        {% endblock content %}
 	
-</body>
-</html>
