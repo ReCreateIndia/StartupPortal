@@ -3,17 +3,17 @@
 	<form  method="post" action="/help/" enctype="multipart/form-data">
           {% csrf_token %}
          <div class="container">
-             <label class="checkbox-inline" id="help1" style="margin-left: -150px;">
+             <label class="checkbox-inline" id="help1" style="margin-left: -150px; color: #f2e5dd";">
                		<input type="checkbox" value="" id="help2" name="help2"> Ask for assistance
             </label><br>
-          	<label class="checkbox-inline" id="help3" style="margin-left: -150px;">
-             	<input type="checkbox" value="" id="in6" name="help3"> Ask for mentor
+          	<label class="checkbox-inline" id="help3" style="margin-left: -150px; color: #f2e5dd;">
+             	<input type="checkbox" value="" id="in6" name="help3" style="color: #f2e5dd"> Ask for mentor
                  </label><br>
-                        <label class="checkbox-inline" id="help4" style="margin-left: -150px;">
-             	<input type="checkbox" value="" id="help5" name="help4"> Increase my share price
+                        <label class="checkbox-inline" id="help4" style="margin-left: -150px; color: #f2e5dd;">
+             	<input type="checkbox" value="" id="help5" name="help4" style="color: #f2e5dd;"> Increase my share price
                  </label><br><br>
            <div class="front">
-            <p id="in1" style="margin-left: 10px;">Attach a Document supporting your request</p>
+            <p id="in1" style="margin-left: 10px; color: #f2e5dd;">Attach a Document supporting your request</p>
             <input type="file" class="btn btn-outline-light" id="in2" name="logoFile" style="width: 300px; margin-left: -100px;"></input>
             <input type="hidden" id="url" name="geturl" >
            
