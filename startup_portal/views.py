@@ -54,7 +54,7 @@ def register(request):
         })
         storagess = messages.get_messages(request)
         for message in storagess:
-            do_something_with(message)
+            # do_something_with(message)
             storagess.used = False
         messages.success(request, 'Registered Successfully')
     return render(request, 'register.html',{})
