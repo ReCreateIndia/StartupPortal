@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StartupCarvaan</title>
   
- <link href="/static/css/extend.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/static/css/extend1.css" rel="stylesheet" type="text/css" media="all">
+ <link href="/staticfiles/css/extend.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/staticfiles/css/extend1.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
   <div class="main-wrapper">
@@ -34,7 +34,7 @@
 <section class="video-section video-section--bg">
         <div class="container">
           <div class="page-section page-section--large text-center">
-            <button class="video-section__icon" data-toggle="modal" data-target="#myModal"><img src='{% static 'video-icon.png' %}' alt=""></button>
+            <button class="video-section__icon" data-toggle="modal" data-target="#myModal"><img src='{% staticfiles 'video-icon.png' %}' alt=""></button>
           </div>
         </div>
       </section>
@@ -95,8 +95,8 @@
     
   
 
-  <script src="{% static 'js/extend.js' %}"></script>
-  <script src="{% static 'js/extend1.js' %}"></script>
+  <script src="{% staticfiles 'js/extend.js' %}"></script>
+  <script src="{% staticfiles 'js/extend1.js' %}"></script>
 
   <script>
     $(document).ready(function() {
