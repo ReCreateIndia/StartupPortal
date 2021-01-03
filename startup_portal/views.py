@@ -33,6 +33,8 @@ auth=firebase.auth()
 storage=firebase.storage()
 email=""
 password=""
+def detail(request):
+    return render(request,'extend.html',{})
 def register(request):
     if request.method == 'POST' and request.FILES['blueone']:
         teamName=request.POST.get('teamname')
