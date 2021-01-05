@@ -118,12 +118,16 @@ def addblog(request):
             needAsistance=True
             needFreelancer=True
             needIntern=True
-            if request.POST.get('assistance')==0:
+            description=request.POST.get('description')
+            if request.POST.get('assistance')==None:
                 needAsistance=False
-            if request.POST.get('freelancing')==0:
+            if request.POST.get('freelancing')==None:
                 needFreelancer=False
-            if request.POST.get('intern')==0:
+            if request.POST.get('intern')==None:
                 needIntern=False
+            print(request.POST.get('assistance'))
+            print(request.POST.get('freelancing'))
+            print(request.POST.get('intern'))
             db.collection('shares').document(localId).collection('Bloging').document(id).set({
                 'id':id,
                 'title':title,
@@ -132,7 +136,8 @@ def addblog(request):
                 'needFreelancer':needFreelancer,
                 'needIntern':needIntern,
                 'UsersLiking':{},
-                'comments':{}
+                'comments':{},
+                'description':description
             })
             return render(request,'Add_blog.html',{})
     return redirect('/login/')    
