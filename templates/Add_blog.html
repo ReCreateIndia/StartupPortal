@@ -1,38 +1,57 @@
 {% extends "layout.html" %}
 {% block content %}
-	<div id="set">
-       <div class="container">
-            <div class="middlepane">
-            <form method="POST" action="/addblog/">
-                {% csrf_token %}
-                <div class="container">
-                    
-                <input class="toppane3" name="videourl" contentEditable=true placeholder="Paste Url" style="background-color: #add8e6;"></div>
-                    <div class="toppane2">
-                   <input type="text" id="emails" name="title" placeholder="Enter Title" style="border-radius: 7px; color: #19343d; background-color: #f2e5dd; margin-left: 15px; margin-top: 30px; width: 340px; height: 40px;">
-                        <p id="in10"></p>
-                         <label class="checkbox-inline" id="in3">
-               		<input type="checkbox" name="intern" value="" id="in4 "> Ask for intern
+	<br><br>
+	<div class="contact1">
+		<div class="container-contact1" style="height: 600px;">
+			<div class="contact1-pic js-tilt" data-tilt>
+            {% load static %}
+				<img src='{% static 'help.jpeg' %}' alt="">
+			</div>
+
+			<form class="contact1-form validate-form" method="POST" action="/addblog/">
+				{% csrf_token %}
+
+				<div class="wrap-input1 validate-input" data-validate = "Name is required">
+					<input class="input1" type="text" name="title" placeholder="Title">
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input class="input1" type="text" name="videourl" placeholder="Paste Video Url">
+					<span class="shadow-input1"></span>
+				</div>
+
+				<label class="checkbox-inline" id="in3" style="color: black;">
+               		<input type="checkbox" name="intern" value="" id="in4 ">&nbsp;&nbsp; Ask for intern
                 </label><br>
-          	<label class="checkbox-inline" id="in5">
-             	<input type="checkbox" name="freelancing" value="" id="in6"> Ask for freelancing
+          	<label class="checkbox-inline" id="in5" style="color: black;">
+             	<input type="checkbox" name="freelancing" value="" id="in6">&nbsp;&nbsp; Ask for freelancing
                  </label><br>
-                        <label class="checkbox-inline" id="in7">
-             	<input type="checkbox" name="assistance" value="" id="in8"> Ask for assistance
-                 </label>
-                    </div>
-                     <!--End-->
-                    <input class="toppane3" name="description" contentEditable=true placeholder="add discription"></div>
-                 <button type="submit" class="btn btn-outline-light" id="in9" >Add Blog</a>
-            
-</div>
-                </form>
-           </div>
-            
-</div>
-       </div>
-        <br><br>  
-		
+                        <label class="checkbox-inline" id="in7" style="color: black;">
+             	<input type="checkbox" name="assistance" value="" id="in8">&nbsp;&nbsp;
+ Ask for assistance
+                 </label><br>
+				<div class="wrap-input1 validate-input" data-validate = "Message is required">
+					<textarea class="input1" name="message" placeholder="Add description" name="description"></textarea>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="container-contact1-form-btn">
+					<button class="contact1-form-btn">
+						<span>
+							Add Blog
+							
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+
 		
 	{% endblock content %}
 
