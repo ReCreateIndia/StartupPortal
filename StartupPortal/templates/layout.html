@@ -9,57 +9,62 @@
 	<!-- firebase -->
 	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
-	<!-- bootstrap css -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-	
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
-  	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
-	
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-	<!-- js addblog -->
-	<script src="{% static 'js/addblog.js' %}"></script>
-	<script src="{% static 'js/index1.js' %}"></script>
-	<!-- jquery online -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/start.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
-<!-- Navbar -->
-<nav class="navbar navbar-dark bg-dark text-light justify-content-between">
-  <a class="navbar-brand"> <h1 style="font-size:25px;"> StartupCarvaan </h1> </a>
-  <div class="d-flex align-items-center">Username</div>
-  <a type="button" href="/logout/" class="btn btn-outline-danger text-light my-2 my-sm-0"> Logout </a>
+<body style="background-image: url('{% static 'try5.jpg' %}');">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="font-size: 30px;">Startupcarvaan</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="">Home</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/addblog/">Add Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/help/">Help</a>
+        </li>
+        
+       
+      </ul>
+        <div class="d-flex">
+            <a href="#" style="font-size: 15px;" type="button" class="btn btn-danger">Logout</a>
+        </div>
+     
+    </div>
+  </div>
 </nav>
-
-<!-- 3 Fixed Buttons -->
+    
 <br>
-<center>
-<div class="btn-group" role="group" aria-label="Basic example">
-	<a type="button" id="btn1" href="/"         onclick="changeFor1()" class="btn btn-dark btn-lg" > Home </a>
-	<a type="button" id="btn2" href="/blog/"    onclick="changeFor2()" class="btn btn-outline-dark btn-lg " > My Blogs </a>
-	<a type="button" id="btn3" href="/addblog/" onclick="changeFor3()" class="btn btn-outline-dark btn-lg"> Add a Blogs </a>
-	<a type="button" id="btn4" href="/help/"    onclick="changeFor4()" class="btn btn-outline-dark btn-lg"> Help </a>
-</div>
-<br><br>
-</center>
-<div id="main" style="margin-top: 300px;">
-	<article class="post featured">
-	<header class="major">
 	{% block content %}
     	{% endblock %}
 		
-	</header>
-</article>
-
-
-<!-- Javascript and some files -->
-
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="{% static 'js/layout.js' %}"></script>
+	
 </body>
 </html>
