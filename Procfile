@@ -1,1 +1,0 @@
-web: gunicorn startup_portal.wsgi --log-file -
