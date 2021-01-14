@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "startupcarvaan",
+  "private_key_id": "51278ec1d7b0ada82cd5da495af538497b1ad275",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDD1CfP7HyznekC\n/Nxy+RMXeqnULJGeP49mqq5w5spBU0R9RHOQmMzP0TNXyKUmmVLHYM8MzHdRFtkq\nfs6iTpv0B/qri7efEZRTbFjfQ1oCiv1PgmRULNTv14P3iB7IH2WSCA3yPpwMsYJp\ncgaUEUrncmKUKArkmHLo4z+Rp2WYHIsFahn044FELue5n8DXv1me+Bo2viPVnKf6\nfaxfJqrkH77scHaWkCB4P4YbT0U/+ILmXm5+5NJ5JwB0pXL2xVSnJwsXcTBsOw9l\nvoENqTT8RAK8mWK/OkWupGgam1QrgxY6T3i9pKFwopdocRTGhO7xKNeEc6nnFaHn\nmjEs4ezPAgMBAAECggEAYYXeu8wEgDjkSVIfAPzslpVGTT1S2ZHCuvjGPcCZufWb\nVp0HxltqKBaBcLaiFHpnwJYEFtYel5n+1YxoIGlwfhOZMOQ4MjYBfZgoHCvBACIy\nq21+xHK9KqJT/Kpj1frYzORI+bpXYXTnQtb/0q5X9LJAyJK2dgg7taIyTrmkPR8d\n0wf1dP3vP448alEk7GkCsaLEuHdL2EhTKKqYa88mzMDCvzM5VI425J9uYpb6+Lqr\nQkPDTTeAQO5DfyPwbQYJy1zC5jj+i59tdpDVRkm6y2uvhVj2O8wACn+TXwkXwSpO\ncAayS0VvIUJRv08ujfTIY5eRiDodd1krQcCQ66psQQKBgQD2Lh1SiTHYcy+0SDwC\n5XGjsKtddqBg2mxjHk/kC9hOg5720LGEOQ2jBx9nxC1KOECJJQz1BeNnCaJIyId7\n+e//1ZSjDN8NdVPySgqYPn3uLHvcZbUllg6V0grd19ASB61Gh+8C/3BwFzxqhu//\neK9RwEnUtRiY/qZiyVGXrcl5QQKBgQDLo9/IUbViIfPE2IbGLpdOwdF2WuCC6bYc\nbvrxUUoo4C/WlZU4w7mcvl03ndxb7RaLMbsJ91yjfs9F1D4AhJ/Ypy4TOiHW8ChK\nYuDh+vbrRCXT9tdY2uNofte36h3r1lSr1CSeF2euCiN327BLtgcrBbka6ldIqlqu\n8XM+oP1SDwKBgQDjDnlhDMT6nJLdNtqS2UjM7z++/pDBg/QAH48UCJDDKcbOYoG4\nMF8RhJpEvL4A/I0ZcSDYRUwOVuZlNv8vK8FeN4HWOSLpaNO6XuwSq2C+8ixzhSNk\nvVhKeuYm4sw4NPhuWyXpn+v2lpfUsQxeltMtFauDElzTj9uqtYAZ4+I1gQKBgH5m\nZpYpmYOi/XN2zxkefE6nYYOsXuUDekVl4Z9+TKDYnvj7+ha07nZLdwL5mnj4zeBy\nat2By9+z66Y1WpLpv2o0QxYuJCkNAoVBoMLECxX3Q9+wvPRrUXJgITgIOrBTZlUN\npfj3ICTYKDHSjDhCcWqT79S0Fp+FFiq2tkjulq6jAoGAMOFQre5O2Xn9BAHXJL4T\nmxMnaOXLheFlaxxjpWHfoBPmXZbLb7EGoJxX9IiCcOLX+BvNf3UAyr7AlQxDwVn0\nuMZpuKCH4jTKaIoVo+VJq1UGkyBgQPNLCvixpVLKVfSyv8qt/qVdq4xpOlEpQuHi\nWb3USlL8zF3tR8Ux56u5hzc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-l0b72@startupcarvaan.iam.gserviceaccount.com",
+  "client_id": "110768979320486920931",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-l0b72%40startupcarvaan.iam.gserviceaccount.com"
+}

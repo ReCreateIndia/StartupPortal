@@ -1,0 +1,76 @@
+<!--<form action="/login/" id="query" class="form-inline" method="POST">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="email" class="team2">Email - </label><br>
+                    {{form.email}}
+        </div>
+        <div class="form-group" id="form3">
+            <label for="phone number" class="team3">Password - </label><br>
+                   {{form.password}}
+        </div>
+        <input type="submit" class="btn" href="#" style="margin-left: 210px;">
+    </form> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<title>Carvaan</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login">
+			<div class="wrap">
+				<form class="login-form" method="POST"  action="/login/" id="query">
+                    {% csrf_token %}
+					<span class="login-form-title p-b-43" id="fo1">
+						StartupCarvaan
+					</span><br>
+					
+				   <div class="wrap-input" style="border: 1px solid #696969;">
+                       <span class="label-input"></span>						
+						<input class="input" type="text" name="email" placeholder="Email" required="true">
+					</div>
+					
+                    <div class="wrap-input" style="border: 1px solid #696969;">
+                        <span class="label-input"></span>
+						<input class="input" type="password" name="password" placeholder="Password" required="true">
+					</div>
+                    <div class="forgot">
+                        <div>
+							<a type="button" href="/forgot/"  class="btn btn-link" id="co1" style="margin-left:40%; color:#366e45;">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+					<br>
+					<div class="container-login-form-btn">
+						<button class="login-form-btn" id="fo2">
+							Submit
+						</button>
+					</div>
+					<div class="forgot">
+                        <div>
+							<a type="button" href="/register/"  class="btn btn-link" id="co1" style="margin-left:30%; color:#366e45;">
+								Not have an account ? make one now
+							</a>
+						</div>
+					</div>
+				</form>
+
+				<div class="login-more" style="background-image: url('{% static 'bg-01.jpeg' %}');">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+</body>
+</html>

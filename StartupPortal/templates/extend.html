@@ -1,0 +1,115 @@
+<!Doctype html>
+<html lang="en">
+<head>
+{% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StartupCarvaan</title>
+  
+ <link href="/static/css/extend.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/extend1.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+  <div class="main-wrapper">
+    
+      <div class="container">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/WP_vM301VZA?autoplay=0" frameborder="0" allowfullscreen="" id="video"  allowscriptaccess="always"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+<section class="video-section video-section--bg">
+        <div class="container">
+          <div class="page-section page-section--large text-center">
+            <button class="video-section__icon" data-toggle="modal" data-target="#myModal"><img src='{% static 'video-icon.png' %}' alt=""></button>
+          </div>
+        </div>
+      </section>
+      
+    
+    <section class="service">
+      <div class="container">
+        <div class="page-section text-center">
+          
+          <div class="row gutters-40">
+            <div class="col-md-4">
+              <div class="thumbnail">
+                
+                <h4 class="service__title">Title</h4>
+                <p class="service__paragraph">This is a short title</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="thumbnail">
+                
+                <h4 class="service__title">Description</h4>
+                <p class="service__paragraph">This is a short description</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="thumbnail">
+                
+                <h4 class="service__title">Like</h4>
+                <p class="service__paragraph">10</p>
+              </div>
+            </div>
+              <div class="col-md-4">
+              <div class="thumbnail">
+                
+                <h4 class="service__title">Comment</h4>
+                <p class="service__paragraph">6</p>
+                  <a href="#" type="button">To see all comments</a>
+              </div>
+            </div>
+              <div class="col-md-4">
+              <div class="thumbnail">
+                
+                <h4 class="service__title">Attach File</h4>
+                <p class="service__paragraph">1</p>
+                   <a href="#" type="button">Download file</a>
+              </div>
+            </div>
+              
+          </div>
+         
+          </div>
+        </div>
+
+      </section>
+      
+    </div>
+    
+    
+  
+
+  <script src="{% static 'js/extend.js' %}"></script>
+  <script src="{% static 'js/extend1.js' %}"></script>
+
+  <script>
+    $(document).ready(function() {
+
+      var $videoSrc = $("#video").attr("src");
+
+      $('#myModal').on('hide.bs.modal', function (e) {
+        $("#video").attr('src',$videoSrc); 
+      });
+
+
+
+    });
+  </script>
+</body>
+</html>
