@@ -33,8 +33,6 @@ auth=firebase.auth()
 storage=firebase.storage()
 email=""
 password=""
-def detail(request):
-    return render(request,'extend.html',{})
 def register(request):
     if request.method == 'POST' and request.FILES['blueone']:
         teamName=request.POST.get('teamname')
@@ -54,12 +52,8 @@ def register(request):
             'professional':professional,
             'filename':filename
         })
-        storagess = messages.get_messages(request)
-        for message in storagess:
-            # do_something_with(message)
-            storagess.used = False
-        messages.success(request, 'Registered Successfully')
-    return render(request, 'register.html',{})
+        return redirect('/temp')
+    return render(request, 'home.html',{})
 
 def login(request):
     if request.method == 'POST':
@@ -102,15 +96,11 @@ def help(request):
 def temp(request):
     return render(request,'temp.html',{})
 def blog(request):
-    if auth.current_user:
-        docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
-        return render(request,'blog.html',{'docs': docs})
-    return redirect('/login/')    
+    docs = db.collection(u'shares').document(u'BEZqpYXndCRQTrqfJocB').collection(u'Bloging').stream()
+    return render(request,'blog.html',{'docs': docs})
 def addblog(request):
-    if auth.current_user:
-        if request.method=='GET':
-            return render(request,'Add_blog.html',{})
-        if request.method == 'POST':
+    if request.method == 'POST':
+        if auth.current_user:
             id=str(uuid.uuid1())
             localId=auth.current_user['localId']
             title=request.POST.get('title')
@@ -118,16 +108,12 @@ def addblog(request):
             needAsistance=True
             needFreelancer=True
             needIntern=True
-            description=request.POST.get('description')
-            if request.POST.get('assistance')==None:
+            if request.POST.get('assistance')==0:
                 needAsistance=False
-            if request.POST.get('freelancing')==None:
+            if request.POST.get('freelancing')==0:
                 needFreelancer=False
-            if request.POST.get('intern')==None:
+            if request.POST.get('intern')==0:
                 needIntern=False
-            print(request.POST.get('assistance'))
-            print(request.POST.get('freelancing'))
-            print(request.POST.get('intern'))
             db.collection('shares').document(localId).collection('Bloging').document(id).set({
                 'id':id,
                 'title':title,
@@ -136,11 +122,12 @@ def addblog(request):
                 'needFreelancer':needFreelancer,
                 'needIntern':needIntern,
                 'UsersLiking':{},
-                'comments':{},
-                'description':description
+                'comments':{}
             })
-            return render(request,'Add_blog.html',{})
-    return redirect('/login/')    
+            return redirect('/')
+        else:
+            return render(request,'login.html')
+    return render(request,'Add_blog.html',{})
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
@@ -158,6 +145,17 @@ def registerUser(request):
 
 
         storage.child("shareFiles").child(localId).child(filename).put(myfile)
+
+
+
+
+
+
+
+
+
+
+
         if auth.current_user:
             name=request.POST.get('companyName')
             special=request.POST.get('description')
@@ -191,14 +189,3 @@ def registerUser(request):
             return render(request,'login.html')
     return render(request,'registerstartup.html',{})
 
-def logout(request):
-        auth.current_user = None
-        return render(request,'login.html')
-
-def forgot(request):
-    if request.method=='GET':
-        return render(request,'forgot.html')
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        auth.send_password_reset_email(email)
-        return render(request,'login.html')

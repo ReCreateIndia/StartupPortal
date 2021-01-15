@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  {% load static %}
+    <title>Carvaan</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+   
+	<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+  </head>
+  <body>
+    <div class="testbox">
+    <form action="/registerUser/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+      <div class="banner" style="background-image: url('{% static 'background.jpg' %}');">
+        
+      </div>
+      
+      <hr/>
+      <fieldset>
+        <legend>Register Startup</legend>
+        <div class="item">
+          <div class="name-item">
+            <div>
+              <input type="email" name="email" placeholder="Enter Email" />
+            </div>
+            <div>
+              <input type="text" name="password" placeholder="Password" />
+            </div>
+          </div>
+          </div>
+           
+          
+      </fieldset>
+      <fieldset>
+      <legend>Register Startup</legend>
+      <div class="item">
+      <label for="name">Company Name</label>
+      <div class="name-item">
+      <input id="name" type="text" name="companyName" placeholder="Company Name" style="height: 50px;" required/>
+      </div>
+      </div>
+      <div class="item">
+        <label for="name">Desciption</label>
+        <div class="name-item">
+        <input id="name" type="text" name="description" placeholder="Description" style="height: 50px;" required/>
+        </div>
+        </div>
+      <div class="item">
+      <label for="growth">Growth</label>
+      <input id="bdate" type="number" name="growth" placeholder="0" required/>
+      
+      <label for="video">Intro Video Url</label>
+      <input id="video" type="text" name="introVideoUrl" placeholder="You Tube Video Id" required/>
+      </div>
+       <div class="item">
+          <label for="picture">Upload logo</label>
+          <input id="picture" type="file" name="logoFile" required/>
+        </div>
+          <div class="item">
+              <label for="investment">People Invested</label>
+      <input id="investment" type="number" name="propleInvest" required/>
+      <label for="tag">Tag</label>
+      <input id="tag" type="text" name="tag" required/>
+      <label for="buyingPrice">Buying Price</label>
+      <input id="buyingPrice" type="text" name="buyingPrice" required/>
+      <label for="occupied">Occupied</label>
+      <input id="occupied" type="text" name="occupied" required/>
+      <label for="sellingPrice">Selling Price</label>
+      <input id="sellingPrice" type="text" name="sellingPrice" required/>
+      <label for="totalShares">Total Shares</label>
+      <input id="totalShares" type="text" name="totalShares" required/>
+      </div>
+     
+      <div class="btn-block">
+      <button type="submit" href="/">APPLY</button>
+      </div>
+          </fieldset>
+        
+    </form>
+    </div>
+  </body>
+</html>

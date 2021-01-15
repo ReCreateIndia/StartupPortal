@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {%load static%}
+    <title>Carvaan</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" src="{% static 'css/form.css' %}">
+  </head>
+  <body>
+    <div class="testbox">
+    <form action="/">
+      <div class="banner">
+        
+      </div>
+      
+      <hr/>
+      <fieldset>
+        <legend>Register Startup</legend>
+        <div class="item">
+          <div class="name-item">
+            <div>
+              <input type="text" name="username" placeholder="Username" />
+            </div>
+            <div>
+              <input type="text" name="password" placeholder="Paassword" />
+            </div>
+          </div>
+          </div>
+           <button type="submit" href="/">Submit</button><br><br>
+          
+      </fieldset>
+      <fieldset>
+      <legend>Register Startup</legend>
+      <div class="item">
+      <label for="name">Company Name</label>
+      <div class="name-item">
+      <input id="name" type="text" name="name" placeholder="Company Name" style="height: 50px;" required/>
+      <div class="item">
+          <label for="instructions" style="margin-top: -25px;">Special Instructions</label>
+          <textarea id="instructions" rows="3" style="width: 500px; margin-top: -0px;"></textarea>
+        </div>
+      </div>
+      </div>
+        
+      <div class="item">
+      <label for="growth">Growth</label>
+      <input id="bdate" type="number" name="growth" required/>
+      
+      <label for="video">Intro Video Url</label>
+      <input id="video" type="text" name="text" required/>
+      </div>
+       <div class="item">
+          <label for="picture">Upload logo</label>
+          <input id="picture" type="file"/>
+        </div>
+          <div class="item">
+              <label for="investment">People Invested</label>
+      <input id="investment" type="number" name="invest" required/>
+      <label for="tag">Tag</label>
+      <input id="tag" type="text" name="tag" required/>
+      </div>
+     
+      <div class="btn-block">
+      <button type="submit" href="/">APPLY</button>
+      </div>
+          </fieldset>
+        
+    </form>
+    </div>
+  </body>
+</html>
