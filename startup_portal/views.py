@@ -53,7 +53,7 @@ def register(request):
             'filename':filename
         })
         return redirect('/temp')
-    return render(request, 'home.html',{})
+    return render(request, 'register.html',{})
 
 def login(request):
     if request.method == 'POST':
