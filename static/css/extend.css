@@ -2,7 +2,7 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src: url(../../assets/fonts/Roboto-Regular.ttf);
+   
   }
   
   @font-face {
@@ -16,14 +16,14 @@
     font-family: 'Roboto-Light';
     font-style: normal;
     font-weight: 300;
-    src: url(../../assets/fonts/Roboto-Light.ttf);
+   
   }
   
   @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url(../../assets/iconfont/MaterialIcons-Regular.ttf);
+    
   }
   
   .material-icons {
